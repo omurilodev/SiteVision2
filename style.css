@@ -1,0 +1,574 @@
+html {
+  /* Força a barra de rolagem vertical a aparecer sempre, 
+     evitando que a NAV pule quando você muda de página */
+  overflow-y: scroll; 
+  overflow-x: hidden;
+
+}
+
+body {
+  background-color: #E1DAD2;
+  margin: 0;
+  padding: 0;
+  /* Remova o max-width: 100vw se puder, ele causa bugs com scroll */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body{
+  background-color: #E1DAD2;
+
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+ul li{
+  list-style: none;
+}
+
+
+/* NAVEGAÇÃO */
+
+header{
+  background-color: #421F38;
+}
+
+nav{
+  display: flex;
+  max-width: 1160px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav img{
+  width: 220px;
+}
+
+.navegacao{
+  display: flex;
+  list-style: none;
+  font-family: 'Inter';
+  gap: 20px;
+  color: white;
+}
+
+/* CONTEÚDO INICIAL DA HOME*/
+
+.inicio {
+  width: 100%;
+  padding-top: 100px; /* Espaço para o vídeo não cortar no topo da tela */
+ /* Só para visualizar melhor */
+
+}
+
+.containerRoxo {
+  max-width: 1260px;
+  /* position: relative é OBRIGATÓRIO para os filhos absolutos (o V) funcionarem */
+  position: relative; 
+  margin: 0 auto;
+  padding: 0 20px 60px 20px; 
+  background-color: #421F38;
+  border-radius: 40px;
+
+     
+}
+
+/* O Elemento V (Decorativo) */
+.V {
+  position: absolute;
+  top: -40px;
+  left: -50px;
+  width: 110%; 
+
+  object-fit: cover; /* Garante que a imagem cubra sem distorcer */
+ 
+
+  z-index: 1; /* Fica acima do fundo roxo, mas abaixo do vídeo */
+  pointer-events: none; /* O usuário não clica/arrasta o fundo sem querer */
+}
+
+/* O Wrapper do Vídeo */
+.video-wrapper {
+  position: relative;
+  z-index: 10; /* O MAIS ALTO: Garante que o vídeo fique por cima de tudo */
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  
+  /* O PULO DO GATO: Margem negativa para subir o vídeo */
+  margin-top: -60px; 
+}
+
+video {
+  width: 100%;
+  padding-top: 40px;
+  display: block; /* Remove espaços estranhos abaixo do vídeo */
+box-shadow: 0 25px 20px -10px rgba(0, 0, 0, 0.25);
+
+}
+
+.conteudo-texto{
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.conteudo-texto h1 {
+  font-family: "Playfair Display", serif;
+  position: relative;
+  z-index: 5;
+  margin-top: 200px;
+  color: white;
+  font-size: 52px;
+  font-weight: 200;
+}
+
+.conteudo-texto h1 span{
+  font-style: italic;
+}
+
+/* PILARES */
+
+.imagemPilares{
+  background-image: url(./assets/fundoCulturaInicio.webp);
+  background-position: center;
+  background-size: auto;
+
+}
+
+.pilares{
+  
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.pilar{
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #624E38;
+  font-weight: 100;
+  padding: 20px 0;
+}
+
+.pilar h2{
+  font-weight: 200;
+  color: #421F38;
+}
+
+.impar h2{
+  color: #957755;
+}
+
+.number{
+
+  font-weight: 100;
+  
+}
+.last{
+  border-bottom: 1px solid #624E38;
+}
+
+
+/* BANNERS */
+
+.banner img{
+  display: block;
+}
+
+.banner{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 80px;
+  box-shadow: 0 4px 40px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+.banner1{
+  position: relative;
+  z-index: 10;
+}
+
+.banner1 h1{
+  font-family: "Playfair Display", serif;
+  position: absolute;
+  z-index: 10;
+  top: 30%;
+  left: 10%;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 200;
+  margin: 0;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Container dos Dots flutuando sobre o banner */
+.dots-container {
+  position: absolute;
+  z-index: 10;
+  bottom: 40px; 
+  left: 50%;
+  transform: translateX(-50%);
+  
+
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+}
+
+
+.dot {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.5; 
+  transition: all 0.3s ease; 
+  filter: grayscale(100%) brightness(200%);
+}
+
+
+.dot.active, 
+.dot:hover {
+  opacity: 1;
+  transform: scale(1.1); 
+  filter: none;
+}
+
+
+/* 5 ANOS */
+
+.aguiaHome{
+  position: absolute;
+  right: -300px;
+  top: 2050px;
+}
+
+.anosRoxo{
+  max-width: 1260px;
+  background-color: #421F38;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 40px;
+  font-family: "Playfair Display", serif;
+}
+
+.anos{
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.anos h1{
+  color: white;
+  font-weight: 500;
+  font-size: 42px;
+  padding-top: 20px;
+}
+
+.sAnos{
+  font-style: italic;
+  color: #957755;
+}
+
+.objetivo{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.objetivo img{
+  width: 20px;
+}
+
+.objetivo p{
+  max-width: 800px;
+  color: #E1DAD2;
+  font-size: 18px;
+}
+
+.textoDescricaoAnos{
+  font-size: 22px;
+  margin-top: 40px;
+  color: #E1DAD2;
+  padding-bottom: 20px;
+}
+
+/* BOTÕES 5 ANOS */
+
+
+.botoes{
+  display: flex;
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 60px;
+  gap: 100px;
+  justify-content: center;
+  
+  
+}
+
+.botao{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 60px;
+  background-color: #0F1F2E;
+  font-size: 24px;
+  border-radius: 4px;
+  font-family: 'PlayFair Display';
+  box-shadow: 4px 2px 4px 7px rgba(0, 0, 0, 0.12);
+}
+
+.botao img{
+  width: 40px;
+}
+
+/* DEPOIMENTOS */
+
+
+.depoimentos{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.slider-container {
+  max-width: 1160px;
+  margin: 40px auto 0;
+  overflow: hidden; /* Corta as imagens que saem dos 1160px */
+  position: relative;
+}
+
+
+.depoimentos h1{
+  font-weight: 300;
+  font-family: 'PlayFair Display';
+  color: #421F38;
+
+}
+
+.italico{
+  font-style: italic;
+}
+
+.cards{
+  display: flex;
+  max-width: 1160px;
+  gap: 10px;
+  margin-top: 20px;
+  cursor: grab;
+}
+
+#slider-track {
+  display: flex; /* Garante que fiquem em linha */
+  cursor: grab;
+  user-select: none; /* Impede seleção de texto */
+  -webkit-user-drag: none; /* Desativa o arraste nativo no Chrome/Safari */
+  touch-action: pan-y; /* Melhora a performance em touch, evitando scroll vertical acidental */
+}
+
+
+
+/* FORMULÁRIO */
+
+form{
+  overflow: hidden;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+
+.form{
+  margin-top: 80px;
+  overflow: hidden;
+  background-image: url(./assets/fundoFormulario.webp);
+  background-size: 100%;
+  padding: 20px;
+}
+
+
+.form h1{
+  color: #421F38;
+  font-family: "Playfair Display";
+  font-size: 48px;
+  font-weight: 400;
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.form h1::after{
+  content: '';
+  display: block;
+  width: 400px;
+  height: 2px;
+  background-color: white;
+  margin-top: 5px;
+}
+
+
+
+.ready{
+  font-style: italic;
+  font-weight: 500;
+}
+
+label{
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  color: #322D31;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+input{
+  display: block;
+  margin-top: 10px;
+  width: 520px;
+  height: 20px;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#enviar{
+  margin: 0 130px;
+  margin-top: 30px;
+  width: 240px;
+  height: 40px;
+  background: #421F38;
+  color: white;
+  font-family: Inter;
+  border: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer !important;
+  z-index: 1000;
+  position: relative;
+}
+
+
+#objetivo{
+  height: 100px;
+  width: 520px;
+}
+
+
+#conheceu{
+  height: 50px;
+  width: 520px;
+  border-radius: 4px;
+}
+
+textarea{
+  font-size: 16px;
+  padding: 2px;
+}
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+footer{
+ background: #421F38;
+  height: 250px;
+  display: flex;
+  position: relative;
+
+  font-family: 'Playfair Display';
+}
+
+.xadrez{
+  position: absolute;
+  bottom: -1;
+  left: -1;
+  right: 0;
+  height: 250px;
+}
+
+
+
+.NaveFooter{
+  font-family: 'Playfair Display', serif;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+
+}
+
+.FooterNavegacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -100px;  
+}
+
+
+.NavFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 50px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.tituloNav{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  font-family: 'Playfair Display', serif;
+}
+
+
+
+.contatoFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 50px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 18px;
+}
+
+
+.logoFooter{
+  height: 50px;
+  cursor: pointer;
+}
+
+
+.logosFooter{
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 90px;
+  height: 60px;
+}
