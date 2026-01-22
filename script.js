@@ -1,59 +1,111 @@
+// --- CONFIGURAÇÃO DO SLIDER INFINITO (LOGO TRACK) ---
 const track = document.getElementById('slider-track');
 let currentPos = 0;
 const speed = 0.4;
-let isDragging = false;
-let startX;
+let isDraggingTrack = false;
+let startXTrack;
 
-// 1. Bloqueia o arraste nativo de imagem, mas mantém o clique ativo
-track.querySelectorAll('img').forEach(img => {
-  img.addEventListener('dragstart', (e) => e.preventDefault());
-  // Garante que o usuário não selecione a imagem acidentalmente
-  img.style.userSelect = 'none';
-  img.style.webkitUserDrag = 'none';
-});
+if (track) {
+  track.querySelectorAll('img').forEach(img => {
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+    img.style.userSelect = 'none';
+  });
 
-function animate() {
-  if (!isDragging) {
-    currentPos -= speed;
-    if (Math.abs(currentPos) >= track.scrollWidth / 2) {
-      currentPos = 0;
+  function animate() {
+    if (!isDraggingTrack) {
+      currentPos -= speed;
+      if (Math.abs(currentPos) >= track.scrollWidth / 2) {
+        currentPos = 0;
+      }
+      track.style.transform = `translateX(${currentPos}px)`;
     }
-    track.style.transform = `translateX(${currentPos}px)`;
+    requestAnimationFrame(animate);
   }
-  requestAnimationFrame(animate);
+
+  track.addEventListener('mousedown', (e) => {
+    isDraggingTrack = true;
+    track.style.cursor = 'grabbing';
+    startXTrack = e.pageX - currentPos;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDraggingTrack = false;
+    if(track) track.style.cursor = 'grab';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDraggingTrack || !track) return;
+    const x = e.pageX;
+    currentPos = x - startXTrack;
+    const halfWidth = track.scrollWidth / 2;
+    if (currentPos > 0) currentPos -= halfWidth;
+    else if (Math.abs(currentPos) >= halfWidth) currentPos += halfWidth;
+    track.style.transform = `translateX(${currentPos}px)`;
+  });
+
+  animate();
 }
 
-// 2. Evento de clique (funciona nas imagens agora)
-track.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  track.style.cursor = 'grabbing';
-  // Usamos e.clientX ou e.pageX para pegar a posição do mouse no clique
-  startX = e.pageX - currentPos;
-});
+// --- CONFIGURAÇÃO DO BANNER PRINCIPAL (SLIDES WRAPPER) ---
+const wrapper = document.getElementById('slidesWrapper');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+let isDraggingBanner = false;
+let startXBanner = 0;
 
-window.addEventListener('mouseup', () => {
-  isDragging = false;
-  track.style.cursor = 'grab';
-});
-
-window.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
+function showSlide(index) {
+  if (index < 0) index = dots.length - 1;
+  if (index >= dots.length) index = 0;
   
-  const x = e.pageX;
-  currentPos = x - startX;
+  currentSlide = index;
+  wrapper.style.transition = "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)";
+  wrapper.style.transform = `translateX(-${index * 25}%)`; 
+  
+  dots.forEach(dot => dot.classList.remove('active'));
+  if(dots[index]) dots[index].classList.add('active');
+}
 
-  // Lógica de loop para manter a esteira infinita durante o arraste
-  const halfWidth = track.scrollWidth / 2;
-  if (currentPos > 0) {
-    currentPos -= halfWidth;
-    startX = x - currentPos;
-  } else if (Math.abs(currentPos) >= halfWidth) {
-    currentPos += halfWidth;
-    startX = x - currentPos;
+// Lógica de arraste do Banner
+if (wrapper) {
+  wrapper.querySelectorAll('img').forEach(img => {
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+  });
+
+  wrapper.addEventListener('mousedown', (e) => {
+    isDraggingBanner = true;
+    startXBanner = e.pageX;
+    wrapper.style.transition = "none"; 
+  });
+
+  wrapper.addEventListener('touchstart', (e) => {
+    isDraggingBanner = true;
+    startXBanner = e.touches[0].clientX;
+    wrapper.style.transition = "none";
+  });
+
+  const handleEnd = (e) => {
+    if (!isDraggingBanner) return;
+    isDraggingBanner = false;
+
+    const endX = (e.type === 'mouseup') ? e.pageX : e.changedTouches[0].clientX;
+    const diff = endX - startXBanner;
+
+    // Se arrastou mais de 100px, troca o slide
+    if (Math.abs(diff) > 100) {
+      if (diff > 0) showSlide(currentSlide - 1); // Arrastou para direita -> anterior
+      else showSlide(currentSlide + 1); // Arrastou para esquerda -> próximo
+    } else {
+      showSlide(currentSlide); // Volta para o lugar se o arraste foi curto
+    }
+  };
+
+  window.addEventListener('mouseup', handleEnd);
+  window.addEventListener('touchend', handleEnd);
+}
+
+// Auto-play do Banner
+setInterval(() => {
+  if (!isDraggingBanner) {
+    showSlide((currentSlide + 1) % dots.length);
   }
-
-  track.style.transform = `translateX(${currentPos}px)`;
-});
-
-animate();
+}, 6000);
