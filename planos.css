@@ -1,0 +1,516 @@
+html {
+  /* Força a barra de rolagem vertical a aparecer sempre, 
+     evitando que a NAV pule quando você muda de página */
+  overflow-y: scroll; 
+  overflow-x: hidden;
+
+}
+
+body {
+  background-color: #E1DAD2;
+  margin: 0;
+  padding: 0;
+  /* Remova o max-width: 100vw se puder, ele causa bugs com scroll */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body{
+  background-color: #E1DAD2;
+
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+ul li{
+  list-style: none;
+}
+
+
+/* NAVEGAÇÃO */
+
+header{
+  background-color: #421F38;
+}
+
+nav{
+  display: flex;
+  max-width: 1160px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav img{
+  width: 220px;
+}
+
+.navegacao{
+  display: flex;
+  list-style: none;
+  font-family: 'Inter';
+  gap: 20px;
+  color: white;
+}
+
+/* TEXTO INICIAL DO BANNER */
+
+.inicio{
+  max-width: 1160px;
+  background-color: gray;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 400px;
+}
+
+.textoInicio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 60px;
+  font-family: "Playfair Display", serif;
+}
+
+.textoInicio h1{
+  margin-bottom: 10px;
+  margin-top: 100px;
+  color: white;
+   font-weight: 300;
+}
+
+.textoInicio h2{
+  margin-bottom: 20px;
+  font-size: 52px;
+  color: white;
+  font-weight: 200;
+}
+
+.textoInicio p{
+  color: white;
+  font-size: 22px;
+  max-width: 500px;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+}
+
+
+/* PLANOS */
+
+.planos{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.planos img{
+  margin-bottom: 40px;
+}
+
+
+
+/* Estilização comum para os containers de cada plano */
+.planoFlight, .planoIntensive, .planoImmersive {
+  position: relative; /* Necessário para que o conteúdo interno use position: absolute */
+  width: 100%; /* Ou a largura que você desejar */
+  overflow: hidden;
+
+}
+
+/* Garante que a imagem ocupe o espaço corretamente */
+.planoFlight img, .planoIntensive img, .planoImmersive img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+
+}
+
+/* Estilização do container de texto para ficar sobre a imagem */
+.descricaoFlight, .descricaoImmersive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Centralização do texto (opcional) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinha no meio verticalmente */
+  align-items: start;     /* Alinha no meio horizontalmente */
+  padding: 50px;
+  
+  text-align: center;
+  color: white; /* Cor do texto para contraste */
+}
+
+.descricaoIntensive{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Centralização do texto (opcional) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinha no meio verticalmente */
+  align-items: end;     /* Alinha no meio horizontalmente */
+  padding: 50px;
+  
+  text-align: center;
+  color: white; /* Cor do texto para contraste */
+}
+
+.descricaoFlight h1, .descricaoIntensive h1, .descricaoImmersive h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.descricaoFlight h2, .descricaoIntensive h2, .descricaoImmersive h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 200;
+}
+
+.botoesPlanos {
+    position: absolute;
+  bottom: 50px;
+  left: 20px;
+  
+  /* Centralização do texto (opcional) */
+  display: flex;
+  flex-direction: row; /* Alinha no meio verticalmente */
+  align-items: flex-end;    
+  padding: 30px;
+  gap: 20px;
+  text-align: center;
+  color: white; /* Cor do texto para contraste */
+}
+
+.botoesPlanos a{
+  background-color: #421F38;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.botoesPlanos2{
+    position: absolute;
+  bottom: 50px;
+  right: 20px;
+  
+  /* Centralização do texto (opcional) */
+  display: flex;
+  flex-direction: row; /* Alinha no meio verticalmente */
+  align-items: flex-end;    
+  padding: 30px;
+  gap: 20px;
+  text-align: center;
+  color: white; /* Cor do texto para contraste */
+}
+
+.botoesPlanos2 a{
+  background-color: #421F38;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+
+/* TEXTO HIGHLIGHT */
+
+
+.roxoTexto{
+  background-color: #421F38;
+  width: 1260px;
+  margin: 0 auto;
+  color: white;
+  padding: 50px 20px;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.textoHighlight h2{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  font-weight: 200;
+  font-size: 28px;
+}
+
+.botaoVisionary{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 60px;
+    background: #0F1F2E;
+    box-shadow: -1px 13px 12.7px 9px rgba(0, 0, 0, 0.14);
+    color: white;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-left: 480px;
+}
+
+/* DEPOIMENTOS */
+
+
+.depoimentos{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+.slider-container {
+  max-width: 1160px;
+  margin: 40px auto 0;
+  overflow: hidden; /* Corta as imagens que saem dos 1160px */
+  position: relative;
+}
+
+
+.depoimentos h1{
+  font-weight: 300;
+  font-family: 'PlayFair Display';
+  color: #421F38;
+
+}
+
+.italico{
+  font-style: italic;
+}
+
+.cards{
+  display: flex;
+  max-width: 1160px;
+  gap: 10px;
+  margin-top: 20px;
+  cursor: grab;
+}
+
+#slider-track {
+  display: flex; /* Garante que fiquem em linha */
+  cursor: grab;
+  user-select: none; /* Impede seleção de texto */
+  -webkit-user-drag: none; /* Desativa o arraste nativo no Chrome/Safari */
+  touch-action: pan-y; /* Melhora a performance em touch, evitando scroll vertical acidental */
+}
+
+
+
+/* FORMULÁRIO */
+
+form{
+  overflow: hidden;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+
+.form{
+  margin-top: 80px;
+  overflow: hidden;
+  background-image: url(./assets/fundoFormulario.webp);
+  background-size: 100%;
+  padding: 20px;
+}
+
+
+.form h1{
+  color: #421F38;
+  font-family: "Playfair Display";
+  font-size: 48px;
+  font-weight: 400;
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.form h1::after{
+  content: '';
+  display: block;
+  width: 400px;
+  height: 2px;
+  background-color: white;
+  margin-top: 5px;
+}
+
+
+
+.ready{
+  font-style: italic;
+  font-weight: 500;
+}
+
+label{
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  color: #322D31;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+input{
+  display: block;
+  margin-top: 10px;
+  width: 520px;
+  height: 20px;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#enviar{
+  margin: 0 130px;
+  margin-top: 30px;
+  width: 240px;
+  height: 40px;
+  background: #421F38;
+  color: white;
+  font-family: Inter;
+  border: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer !important;
+  z-index: 1000;
+  position: relative;
+}
+
+
+#objetivo{
+  height: 100px;
+  width: 520px;
+}
+
+
+#conheceu{
+  height: 50px;
+  width: 520px;
+  border-radius: 4px;
+}
+
+textarea{
+  font-size: 16px;
+  padding: 2px;
+}
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+footer{
+ background: #421F38;
+  height: 250px;
+  display: flex;
+  position: relative;
+
+  font-family: 'Playfair Display';
+}
+
+.xadrez{
+  position: absolute;
+  bottom: -1;
+  left: -1;
+  right: 0;
+  height: 250px;
+}
+
+
+
+.NaveFooter{
+  font-family: 'Playfair Display', serif;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+
+}
+
+.FooterNavegacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -100px;  
+}
+
+
+.NavFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 50px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.tituloNav{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  font-family: 'Playfair Display', serif;
+}
+
+
+
+.contatoFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 50px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 18px;
+}
+
+
+.logoFooter{
+  height: 50px;
+  cursor: pointer;
+}
+
+
+.logosFooter{
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 90px;
+  height: 60px;
+}
