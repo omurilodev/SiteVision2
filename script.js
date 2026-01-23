@@ -109,3 +109,49 @@ setInterval(() => {
     showSlide((currentSlide + 1) % dots.length);
   }
 }, 6000);
+
+
+/** FORMULÁRIO */
+
+
+  const formulario = document.getElementById('form-contato');
+  const botao = document.getElementById('enviar');
+
+  formulario.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Impede o recarregamento da página
+
+    // Muda o texto do botão para dar feedback ao usuário
+    botao.innerText = "ENVIANDO...";
+    botao.disabled = true;
+
+    // Captura os dados de forma automática usando o "name" de cada input
+    const formData = new FormData(formulario);
+    const dados = Object.fromEntries(formData);
+
+    // INSIRA AQUI A URL DO SEU WEBHOOK DO N8N
+    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-site-vision';
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+      });
+
+      if (response.ok) {
+        alert('Dados enviados com sucesso! LET\'S GO!');
+        formulario.reset(); // Limpa o formulário
+      } else {
+        alert('Ops! Houve um erro no servidor.');
+      }
+    } catch (error) {
+      console.error('Erro ao conectar com n8n:', error);
+      alert('Erro de conexão. Verifique sua internet.');
+    } finally {
+      // Restaura o botão
+      botao.innerText = "LET'S GO!";
+      botao.disabled = false;
+    }
+  });

@@ -37,7 +37,6 @@ ul li{
 }
 
 
-/* NAVEGAÇÃO */
 
 header{
   background-color: #421F38;
@@ -55,6 +54,7 @@ nav{
 nav img{
   width: 220px;
 }
+
 
 .navegacao{
   display: flex;
@@ -632,3 +632,110 @@ footer{
   left: 90px;
   height: 60px;
 }
+
+
+
+/* ==========================================================================
+   TABLET (768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  
+
+
+    .navegacao a {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    .botoes a{
+      font-size: 18px;
+    }
+
+.btn-menu { display: block; }
+
+
+
+
+
+    .containerRoxo{
+      padding-bottom: 10px;
+    }
+
+    .pilares{
+      margin-top: 30px;
+    }
+
+    /* Navegação */
+    .navegacao { gap: 10px; font-size: 14px; }
+    nav img { width: 150px; }
+
+
+
+
+
+    .navegacao a {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+
+
+    /* Hero Section */
+    .conteudo-texto h1 { font-size: 38px; margin-top: 100px; }
+    .V { width: 120%; left: -15%; } /* Ajuste da letra V decorativa */
+
+    /* Banner / Slides */
+    .banner-content h1 { font-size: 32px; top: 20%; }
+    .banner-content p { font-size: 16px; max-width: 80%; }
+
+    /* Pilares */
+    .pilar { font-size: 18px; }
+
+    /* Botões 5 Anos */
+    .botoes { gap: 20px; flex-direction: column; align-items: center; }
+    .botao { width: 100%; justify-content: center; }
+
+    /* Formulário */
+    input, #conheceu, #objetivo { width: 100%; }
+    #enviar { margin: 30px auto; }
+
+    .form{
+      background-image: none;
+    }
+}
+
+
+/* ==========================================================================
+   SMARTPHONE (425px)
+   ========================================================================== */
+@media (max-width: 425px) {
+    /* Ajustes de Tipografia */
+    .conteudo-texto h1 { font-size: 28px; text-align: center; }
+    .anos h1 { font-size: 26px; }
+    
+    /* Nav Mobile (Simples) */
+    .navegacao { display: none; } /* Opcional: esconder para usar menu hambúrguer futuramente */
+    
+    /* Pilares - Esconde o número ou empilha se necessário */
+    .pilar h2 { font-size: 16px; }
+
+    /* Ajuste da Águia que está com posição fixa negativa (causando scroll lateral) */
+    .aguiaHome { display: none; } 
+
+    /* Banner Content */
+    .banner-content h1 { font-size: 24px; left: 5%; top: 15%; }
+    .banner-content p { font-size: 14px; left: 5%; max-width: 90%; top: 45%; }
+    .dots-container { bottom: 10px; gap: 10px; }
+
+    /* Footer */
+    footer { height: auto; padding: 40px 0; flex-direction: column; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; text-align: center; }
+    .logosFooter { position: relative; left: 0; justify-content: center; margin-top: 30px; }
+    .xadrez { display: none; } /* Remove o xadrez se ele poluir o fundo no mobile */
+
+    
+}
+
+
+
