@@ -1,3 +1,27 @@
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
 html {
   /* Força a barra de rolagem vertical a aparecer sempre, 
      evitando que a NAV pule quando você muda de página */
@@ -382,4 +406,134 @@ footer{
   bottom: 10px;
   left: 90px;
   height: 60px;
+}
+
+
+
+/* --- RESPONSIVIDADE CONTATO (768px e 425px) --- */
+
+@media (max-width: 768px) {
+
+nav {
+        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logoPrincipal  {
+      width: 150px;
+      height: auto;
+    }
+
+    .hamburger {
+    display: flex; /* Mostra o botão no mobile */
+    z-index: 1100;
+  }
+
+  .navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu para fora da tela */
+    width: 100%;
+    height: 100vh;
+    background-color: #421F38;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .navegacao.active {
+    right: 0; /* Traz o menu para dentro da tela */
+  }
+
+  /* Animação do X no hambúrguer quando ativo */
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navegacao li {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .container {
+    grid-template-columns: 1fr; /* Transforma as duas colunas em uma */
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .forms-column {
+    order: 1; /* Garante que o formulário venha primeiro */
+    gap: 40px;
+  }
+
+  /* Ajuste dos Títulos */
+  .contatoTime, .contatoCurriculo {
+    font-size: 36px;
+    text-wrap: wrap; /* Permite que o título quebre linha no mobile */
+    text-align: center;
+  }
+
+  /* Ajuste dos Inputs (Removendo larguras fixas) */
+  input, #conheceu, #objetivo, .labelCurriculo {
+    width: 100% !important; 
+    max-width: 100%;
+  }
+
+  #enviar {
+    margin-left: 0;
+    width: 100%; /* Botão ocupa a largura toda para facilitar o toque */
+  }
+
+  /* Grid de Fotos no Mobile */
+  .photo-grid {
+    order: 2;
+    margin-left: 0; /* Remove o recuo lateral do desktop */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .photo-grid img {
+    margin-top: 0;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+      footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
+    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+
+}
+
+/* Ajustes finos para Celulares (425px) */
+@media (max-width: 425px) {
+  .contatoTime, .contatoCurriculo {
+    font-size: 28px;
+  }
+
+  .roxo {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .labelCurriculo {
+    height: 80px; /* Um pouco menor para telas pequenas */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
