@@ -1,3 +1,28 @@
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
 html {
   /* Força a barra de rolagem vertical a aparecer sempre, 
      evitando que a NAV pule quando você muda de página */
@@ -120,6 +145,8 @@ border-radius: 30px;
 margin-top: 40px;
 
 }
+  
+
 
 .conteudo-texto{
   max-width: 1160px;
@@ -635,107 +662,160 @@ footer{
 
 
 
-/* ==========================================================================
-   TABLET (768px)
-   ========================================================================== */
+
+
 @media (max-width: 768px) {
-  
-  
+  .hamburger {
+    display: flex; /* Mostra o botão no mobile */
+    z-index: 1100;
+  }
+
+  .navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu para fora da tela */
+    width: 100%;
+    height: 100vh;
+    background-color: #421F38;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .navegacao.active {
+    right: 0; /* Traz o menu para dentro da tela */
+  }
+
+  /* Animação do X no hambúrguer quando ativo */
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navegacao li {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+}
+
+/* --- RESPONSIVIDADE GERAL (768px e 425px) --- */
+
+@media (max-width: 768px) {
+    /* Ajustes de Layout Global */
+    .containerRoxo, .pilares, .banner, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
+        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logoPrincipal  {
+      width: 150px;
+    }
 
 
-    .navegacao a {
-        font-size: 20px;
-        margin: 20px 0;
+    /* Início e Vídeo */
+    .inicio { padding-top: 50px; }
+    .video-wrapper { margin-top: -30px; }
+    .conteudo-texto h1 { 
+        font-size: 48px; 
+        margin-top: 50px; 
+        text-align: center;
+    }
+
+    /* Pilares (Transformando em lista simples) */
+    .pilar {
+        font-size: 18px;
+        padding: 15px 5px;
+    }
+    .pilar h2 { font-size: 18px; }
+
+    /* Banner/Slider */
+    .banner-content h1 { font-size: 28px; top: 20%; }
+    .banner-content p { font-size: 16px; top: 45%; max-width: 40%; }
+    .partnerP { top: 35% !important; }
+
+
+    .dots-container{
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .dot{
+        width: 20px;
+    }
+
+    /* Seção 5 Anos */
+    .anos h1 { font-size: 30px; text-align: center; }
+    .aguiaHome { display: none; } /* Remove a águia que vaza a tela */
+    
+    /* Botões (Um em cima do outro) */
+    .botoes { 
+        flex-direction: column; 
+        gap: 20px; 
+        align-items: center;
+    }
+    .botao { width: 100%; justify-content: center; }
+
+    /* Formulário */
+    input, #conheceu, #objetivo, textarea {
+        width: 100% !important; /* Ocupa a largura total do container */
+    }
+    #enviar { margin: 30px auto; width: 100%; }
+
+    .form{
+      background-image: none;
+    }
+
+    /* Footer */
+    footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
+    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+}
+
+/* Ajustes específicos para Celulares Pequenos (425px) */
+@media (max-width: 425px) {
+
+  .tituloCultura  {
+    font-size: 48px;
+  }
+
+
+  .V{
+    width: 120%;
+    margin-top: 20px;
+  }
+
+
+    .conteudo-texto h1 { font-size: 32px; }
+    
+    .pilar { flex-direction: column; gap: 5px; text-align: left; }
+    .number { font-weight: bold; order: -1; } /* Número aparece antes do texto */
+
+    .banner-content h1 { font-size: 22px; }
+    .banner-content p { font-size: 10px; margin-top: 10px; } /* Esconde descrição longa em telas muito pequenas para manter o design limpo */
+    .john{
+      font-size: 8px !important;
+    }
+
+
+    .anos h1 { font-size: 24px; }
+    .objetivo p { font-size: 15px; }
+
+    .form h1 { font-size: 34px; }
+    .form h1::after { width: 150px; }
+
+    .textoDescricaoAnos{
+      font-size: 18px;
+      text-align: center;
     }
     .botoes a{
       font-size: 18px;
     }
 
-.btn-menu { display: block; }
 
-
-
-
-
-    .containerRoxo{
-      padding-bottom: 10px;
-    }
-
-    .pilares{
-      margin-top: 30px;
-    }
-
-    /* Navegação */
-    .navegacao { gap: 10px; font-size: 14px; }
-    nav img { width: 150px; }
-
-
-
-
-
-    .navegacao a {
-        font-size: 20px;
-        margin: 20px 0;
-    }
-
-
-
-    /* Hero Section */
-    .conteudo-texto h1 { font-size: 38px; margin-top: 100px; }
-    .V { width: 120%; left: -15%; } /* Ajuste da letra V decorativa */
-
-    /* Banner / Slides */
-    .banner-content h1 { font-size: 32px; top: 20%; }
-    .banner-content p { font-size: 16px; max-width: 80%; }
-
-    /* Pilares */
-    .pilar { font-size: 18px; }
-
-    /* Botões 5 Anos */
-    .botoes { gap: 20px; flex-direction: column; align-items: center; }
-    .botao { width: 100%; justify-content: center; }
-
-    /* Formulário */
-    input, #conheceu, #objetivo { width: 100%; }
-    #enviar { margin: 30px auto; }
-
-    .form{
-      background-image: none;
-    }
-}
-
-
-/* ==========================================================================
-   SMARTPHONE (425px)
-   ========================================================================== */
-@media (max-width: 425px) {
-    /* Ajustes de Tipografia */
-    .conteudo-texto h1 { font-size: 28px; text-align: center; }
-    .anos h1 { font-size: 26px; }
-    
-    /* Nav Mobile (Simples) */
-    .navegacao { display: none; } /* Opcional: esconder para usar menu hambúrguer futuramente */
-    
-    /* Pilares - Esconde o número ou empilha se necessário */
-    .pilar h2 { font-size: 16px; }
-
-    /* Ajuste da Águia que está com posição fixa negativa (causando scroll lateral) */
-    .aguiaHome { display: none; } 
-
-    /* Banner Content */
-    .banner-content h1 { font-size: 24px; left: 5%; top: 15%; }
-    .banner-content p { font-size: 14px; left: 5%; max-width: 90%; top: 45%; }
-    .dots-container { bottom: 10px; gap: 10px; }
-
-    /* Footer */
-    footer { height: auto; padding: 40px 0; flex-direction: column; }
-    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
-    .NavFooter, .contatoFooter { margin-left: 0; text-align: center; }
-    .logosFooter { position: relative; left: 0; justify-content: center; margin-top: 30px; }
-    .xadrez { display: none; } /* Remove o xadrez se ele poluir o fundo no mobile */
-
-    
-}
-
-
-
+  }
