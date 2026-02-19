@@ -310,6 +310,12 @@ textarea{
   padding: 2px;
 }
 
+textarea{
+  font-size: 16px;
+  padding: 2px;
+  border: none;
+}
+
 /* ROXO */
 
 .roxo label{
