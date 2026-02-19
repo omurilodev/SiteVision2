@@ -49,7 +49,7 @@ body {
 
 body{
   background-color: #E1DAD2;
-
+  zoom: 0.9;
 }
 
 a{
@@ -125,7 +125,7 @@ textarea{
   }
 
   .logoPrincipal{
-  height: 80px;
+  height: 57px;
   cursor: pointer;
 }
 

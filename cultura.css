@@ -1,3 +1,20 @@
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
 
 
 body {
@@ -7,6 +24,7 @@ body {
   /* Remova o max-width: 100vw se puder, ele causa bugs com scroll */
   width: 100%;
   overflow-x: hidden;
+  zoom: 0.9;
 }
 
 *{
@@ -354,7 +372,7 @@ nav img{
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin-left: 310px;
+    margin-left: 370px;
     color: white;
     font-family: 'Playfair Display', sans-serif;
     font-size: 22px;
@@ -410,9 +428,9 @@ nav img{
     content: "";
     position: absolute;
     right: 0; 
-    top: 180px; 
+    top: 140px; 
     transform: translateY(-50%); 
-    height: 380px; 
+    height: 300px; 
     width: 2px; 
     background-color: rgba(149, 119, 85, 0.5); 
 }
@@ -427,9 +445,9 @@ nav img{
     content: "";
     position: absolute;
     left: 0;
-    top: 180px;
+    top: 140px;
     transform: translateY(-50%);
-    height: 400px;
+    height: 300px;
     width: 2px; 
     background-color: rgba(149, 119, 85, 0.5);
 }
@@ -473,18 +491,25 @@ nav img{
     text-align: center;
     border: none;
     cursor: pointer;
-    margin-top: 130px;
-    margin-left: 480px;
+    margin-top: 60px;
+    margin-left: 600px;
+}
+
+
+.doisPontos{
+  color: white !important;
 }
 
 /* INSTAGRAM */
 
 .instagram h1{
   text-align: center;
-  font-size: 52px;
+  font-size: 46px;
   font-family: "Playfair Display";
   font-style: italic;
   font-weight: 400;
+  color: #421F38;
+  line-height: 1.0;
 }
 
 
@@ -582,11 +607,17 @@ input{
   height: 50px;
   width: 520px;
   border-radius: 4px;
+  border: none;
+}
+
+select {
+  color: #322D31;
 }
 
 textarea{
   font-size: 16px;
   padding: 2px;
+  border: none;
 }
 
 
@@ -690,7 +721,7 @@ footer{
 .team-container {
   position: absolute;
   top: 170px;
-  left: 700px;
+  left: 780px;
   display: flex;
   width: 100%;
   max-width: 500px;
@@ -734,4 +765,245 @@ footer{
 
 .member:hover .info {
   opacity: 1;
+}
+
+
+
+
+
+
+
+
+/* --- RESPONSIVIDADE PÁGINA CULTURA --- */
+
+@media (max-width: 768px) {
+
+
+
+  nav {
+        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logoPrincipal  {
+      width: 150px;
+      height: auto;
+    }
+
+    .hamburger {
+    display: flex; /* Mostra o botão no mobile */
+    z-index: 1100;
+  }
+
+  .navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu para fora da tela */
+    width: 100%;
+    height: 100vh;
+    background-color: #421F38;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .navegacao.active {
+    right: 0; /* Traz o menu para dentro da tela */
+  }
+
+  /* Animação do X no hambúrguer quando ativo */
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navegacao li {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  /* Header e Seção Inicial */
+  .container {
+    padding-top: 60px;
+    text-align: center;
+  }
+  .textosInicio h1 { font-size: 32px; }
+  .fundoPrincipal { width: 100%; height: auto; object-fit: cover; }
+
+  /* Team e Descrição */
+  .team-container {
+    display: none;
+  }
+  .member img { width: 100px; } /* Reduz sócios no mobile */
+  
+  .fundoTexto { width: 100%; position: relative; }
+  .tituloAlem { position: static; text-align: center; margin-top: 20px; }
+  .textoAlem { max-width: 100%; text-align: center; padding: 0 20px; }
+
+  /* Pilares da Cultura */
+  .containerPilares {
+    grid-template-columns: 1fr; /* Uma coluna só */
+    margin-top: 50px;
+    gap: 60px;
+    padding: 0 20px;
+  }
+
+  .visao, .honra, .frente, .verdade, .amor, .excelencia, .mais, .guardioes {
+    grid-column: 1 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center !important;
+  }
+
+  /* Ajuste das imagens de fundo dos títulos */
+  .fundoTitulo {
+    width: 100%;
+    max-width: 350px;
+    position: relative !important;
+    margin-top: 0 !important;
+  }
+
+  /* Resetando as posições absolutas dos textos dos pilares */
+  .containerPilares h1 {
+    position: relative !important;
+    top: -45px !important; /* Sobe o texto para dentro da imagem */
+    left: 0 !important;
+    margin-bottom: -30px;
+    font-size: 24px !important;
+  }
+
+  .containerPilares p {
+    margin-top: 0 !important;
+    text-align: center !important;
+    max-width: 100%;
+  }
+
+  /* Passos para se tornar Visionary */
+  .blocoVisioanry {
+    margin-left: 0;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .tornarVisionary{
+    font-size: 22px;
+    justify-content: center;
+  }
+
+
+
+  .passo-item p{
+    font-size: 16px;
+    max-width: 100px;
+  }
+
+  .passo-item:first-child::before{
+    height: 350px;
+    top: 130px;
+  }
+
+  .passo-item::after, .passo-item::before {
+  height: 350px;
+    top: 130px;
+  }
+
+
+  
+  .check{
+    width: 0px;
+    margin-top: -50px;
+  }
+  
+  .doisPontos{
+    color: white !important;
+  }
+
+
+  .aguiaVision { display: none; } /* Evita quebra de layout */
+
+  .botaoVisionary {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 80px;
+    width: 80%;
+    font-size: 20px;
+
+  }
+
+  .instagram h1 { font-size: 30px; }
+      footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
+    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+
+    .form{
+      background-image: none;
+    }
+
+     /* Formulário */
+    input, #conheceu, #objetivo, textarea {
+        width: 100% !important; /* Ocupa a largura total do container */
+    }
+    #enviar { margin: 30px auto; width: 100%; }
+
+    .form{
+      background-image: none;
+    }
+}
+
+/* Ajustes para 425px (Celulares Pequenos) */
+@media (max-width: 425px) {
+  .textosInicio h1 { font-size: 26px; }
+  
+  .containerPilares h1 {
+    font-size: 20px !important;
+    top: -35px !important;
+  }
+
+  .passo-numero { font-size: 50px; }
+  
+  .fundoRoxo {
+    border-radius: 30px; /* Aproveita mais espaço lateral */
+    width: 100%;
+  }
+  .tornarVisionary{
+    font-size: 22px;
+    justify-content: center;
+  }
+
+  .passos-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .passo-item p{
+    font-size: 16px;
+    max-width: 100px;
+  }
+
+  .passo-item:first-child::before{
+    display: none; /* Remove a linha vertical que não cabe no mobile */
+  }
+
+  .passo-item::after, .passo-item::before {
+    display: none; /* Remove as linhas verticais que não cabem no mobile */
+  }
+
+  .aguiaVision { display: none; } /* Evita quebra de layout */
+
+  .botaoVisionary {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 40px;
+    width: 80%;
+    font-size: 20px;
+
+  }
 }

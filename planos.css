@@ -24,7 +24,7 @@ body {
 
 body{
   background-color: #E1DAD2;
-
+  zoom: 0.9;
 }
 
 a{
@@ -63,6 +63,108 @@ nav img{
   gap: 20px;
   color: white;
 }
+
+
+/* BENEFICIOS */
+
+.backgroundSino{
+  background-image: url(./assets/fundoSino.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px;
+}
+
+.tituloInicialBullet{
+  max-width: 1160px;
+  margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #0F1F2E;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.textoFinalBullets{
+  font-family: 'Playfair Display', serif;
+  max-width: 1160px;
+  margin: 0 auto;
+  font-size: 30px;
+  margin-top: 50px;
+  color: #957755;
+  line-height: 1.2;
+  font-weight: 400;
+  text-align: center;
+}
+
+.alemDoIngles{
+  font-style: italic;
+  font-weight: 600;
+}
+
+.sessaodeBeneficios{
+  display: flex;
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 100px;
+  gap: 60px;
+  }
+
+
+.esquerda{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.e1, .e2, .e3, .e4{
+  background-color: #421F38;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+.e1 h1, .e2 h1, .e3 h1, .e4 h1{
+  font-size: 26px;
+  color: #C7B299;
+  font-style: italic;
+}
+
+.e1 h2, .e2 h2, .e3 h2, .e4 h2{
+  font-size: 22px;
+  font-family: 'Inter';
+  font-weight: 200;
+}
+
+.direita{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.d1, .d2, .d3, .d4{
+  background-color: #421F38;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+
+.d1 h1, .d2 h1, .d3 h1, .d4 h1{
+  font-size: 26px;
+  color: #C7B299;
+  font-style: italic;
+}
+
+.d1 h2, .d2 h2, .d3 h2, .d4 h2{
+  font-size: 22px;
+  font-family: 'Inter';
+  font-weight: 200;
+}
+
 
 /* TEXTO INICIAL DO BANNER */
 
@@ -105,134 +207,92 @@ nav img{
 }
 
 
+
+
+
+
+
 /* PLANOS */
 
-.planos{
+.conhecaPlanos{
+  max-width: 1160px;
+  margin: -50px auto;
+  justify-self: center;
+  align-self: center;
+  font-family: 'PlayFair Display';
+  color: #322D31;
+  font-size: 38px;
+}
+
+.conhecaPlanos span{
+  font-style: italic;
+  color: #957755;
+}
+
+.planos1{
+  display: flex;
   max-width: 1160px;
   margin: 0 auto;
-  margin-top: 200px;
-}
-
-.planos img{
-  margin-bottom: 40px;
+  margin-top: 100px;
+  gap: 100px;
 }
 
 
-
-/* Estilização comum para os containers de cada plano */
-.planoFlight, .planoIntensive, .planoImmersive {
-  position: relative; /* Necessário para que o conteúdo interno use position: absolute */
-  width: 100%; /* Ou a largura que você desejar */
-  overflow: hidden;
-
-}
-
-/* Garante que a imagem ocupe o espaço corretamente */
-.planoFlight img, .planoIntensive img, .planoImmersive img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 8px;
-
-}
-
-/* Estilização do container de texto para ficar sobre a imagem */
-.descricaoFlight, .descricaoImmersive {
+.planos1 img{
+  border-radius: 15px;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  /* Centralização do texto (opcional) */
+}
+
+.planos1 a{
+    background-color: #421F38;
+  padding: 10px 58px;
+  font-family: 'Inter';
+  font-size: 18px;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 4px;
+}
+
+
+
+.descricaoFlight1, .descricaoIntensive1,
+ .descricaoImmersive1{
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinha no meio verticalmente */
-  align-items: start;     /* Alinha no meio horizontalmente */
-  padding: 50px;
-  
-  text-align: center;
-  color: white; /* Cor do texto para contraste */
+  gap: 10px;
+  align-items: center;
+  margin-left: 30px;
 }
 
-.descricaoIntensive{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  /* Centralização do texto (opcional) */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Alinha no meio verticalmente */
-  align-items: end;     /* Alinha no meio horizontalmente */
-  padding: 50px;
-  
-  text-align: center;
-  color: white; /* Cor do texto para contraste */
-}
+.descricaoFlight1 h1, .descricaoIntensive1 h1,
+ .descricaoImmersive1 h1{
+  margin-top: 80px;
+  font-size: 26px;
+  color: #E1DAD2;
+  font-weight: 600;
+ }
 
-.descricaoFlight h1, .descricaoIntensive h1, .descricaoImmersive h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-  font-weight: 300;
-}
-
-.descricaoFlight h2, .descricaoIntensive h2, .descricaoImmersive h2 {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
-  margin-bottom: 5px;
+ .descricaoFlight1 h2, .descricaoIntensive1 h2,
+ .descricaoImmersive1 h2{
+  font-size: 22px;
+  color: #E1DAD2;
   font-weight: 200;
+  font-family: 'Inter';
 }
 
-.botoesPlanos {
-    position: absolute;
-  bottom: 50px;
-  left: 20px;
-  
-  /* Centralização do texto (opcional) */
-  display: flex;
-  flex-direction: row; /* Alinha no meio verticalmente */
-  align-items: flex-end;    
-  padding: 30px;
-  gap: 20px;
-  text-align: center;
-  color: white; /* Cor do texto para contraste */
+.h2{
+  margin-top: 30px;
 }
 
-.botoesPlanos a{
+.planButton{
+  margin-top: 100px;
   background-color: #421F38;
-  padding: 15px 25px;
-  border-radius: 4px;
-  font-family: "Inter", sans-serif;
+  padding: 10px 50px !important;
+  font-family: 'Inter';
   font-size: 18px;
-  font-weight: 300;
-}
-
-.botoesPlanos2{
-    position: absolute;
-  bottom: 50px;
-  right: 20px;
-  
-  /* Centralização do texto (opcional) */
   display: flex;
-  flex-direction: row; /* Alinha no meio verticalmente */
-  align-items: flex-end;    
-  padding: 30px;
-  gap: 20px;
-  text-align: center;
-  color: white; /* Cor do texto para contraste */
-}
-
-.botoesPlanos2 a{
-  background-color: #421F38;
-  padding: 15px 25px;
-  border-radius: 4px;
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  font-weight: 300;
+  flex-wrap: nowrap;
 }
 
 
@@ -243,7 +303,9 @@ nav img{
   background-color: #421F38;
   width: 1260px;
   margin: 0 auto;
-  color: white;
+  margin-top: 200px;
+    color: #E1DAD2;
+
   padding: 50px 20px;
   font-family: "Playfair Display", serif;
   text-align: center;
@@ -258,6 +320,12 @@ nav img{
   text-align: center;
   font-weight: 200;
   font-size: 28px;
+}
+
+.textoHighlight h2 span{
+  font-weight: 500;
+  font-style: italic;
+  color: #fff;
 }
 
 .botaoVisionary{
@@ -276,7 +344,8 @@ nav img{
     border: none;
     cursor: pointer;
     margin-top: 80px;
-    margin-left: 480px;
+    margin-left: 580px;
+    border-radius: 15px;
 }
 
 /* DEPOIMENTOS */
@@ -418,11 +487,17 @@ input{
   height: 50px;
   width: 520px;
   border-radius: 4px;
+  border: none;
+}
+
+select {
+  color: #322D31;
 }
 
 textarea{
   font-size: 16px;
   padding: 2px;
+  border: none;
 }
 
 
