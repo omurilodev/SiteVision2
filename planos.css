@@ -1,3 +1,25 @@
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
 html {
   /* Força a barra de rolagem vertical a aparecer sempre, 
      evitando que a NAV pule quando você muda de página */
@@ -588,4 +610,201 @@ footer{
   bottom: 10px;
   left: 90px;
   height: 60px;
+}
+
+
+/* AJUSTES PARA TABLET (768px) */
+@media (max-width: 768px) {
+
+nav{
+          max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+}
+
+
+  .hamburger {
+    display: flex; /* Mostra o botão no mobile */
+    z-index: 1100;
+  }
+
+    .logoPrincipal  {
+      width: 150px;
+    }
+
+  .navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu para fora da tela */
+    width: 100%;
+    height: 100vh;
+    background-color: #421F38;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .navegacao.active {
+    right: 0; /* Traz o menu para dentro da tela */
+  }
+
+  /* Animação do X no hambúrguer quando ativo */
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navegacao li {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+    .backgroundSino {
+        padding: 60px 20px; /* Reduzi o padding de 150px que espremia o conteúdo */
+    }
+
+    .sessaodeBeneficios {
+        flex-direction: column; /* Empilha as colunas esquerda e direita */
+        gap: 40px;
+    }
+
+    .inicio {
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    .textoInicio {
+        margin-left: 20px;
+        padding-right: 20px;
+    }
+
+   .planos1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    /* Transforma os contentores principais numa área delimitada */
+    .planoFlight1, .planoIntensive1, .Immersive1 {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        min-height: 450px; /* Define uma altura mínima para a imagem ter espaço */
+        display: flex;
+        border-radius: 15px;
+        overflow: hidden; /* Garante que a imagem respeita os cantos arredondados */
+    }
+
+    /* A imagem funciona como background absoluto */
+    .planos1 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Preenche todo o contentor sem distorcer */
+        z-index: 0;
+    }
+
+    /* O texto fica por cima (z-index: 1) e centralizado */
+    .descricaoFlight1, .descricaoIntensive1, .descricaoImmersive1 {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+  
+    }
+
+    .descricaoFlight1 h1, .descricaoIntensive1 h1, .descricaoImmersive1 h1 {
+        margin-top: 0; /* Remove a margem superior que vinha do desktop */
+    }
+
+    .planButton {
+        margin-top: 30px; /* Ajusta a distância do botão ao texto */
+    }
+
+    .roxoTexto {
+        width: 90%; /* Deixa de ser 1260px fixo */
+        margin-top: 100px;
+    }
+
+    .botaoVisionary {
+        margin-left: 0;
+        display: flex;
+        width: fit-content;
+        margin: 40px auto; /* Centraliza o botão */
+    }
+    /* Formulário */
+    input, #conheceu, #objetivo, textarea {
+        width: 100% !important; /* Ocupa a largura total do container */
+    }
+    #enviar { margin: 30px auto; width: 100%; }
+
+    .form{
+      background-image: none;
+    }
+
+    /* Footer */
+    footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
+    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+
+}
+
+/* AJUSTES PARA MOBILE (425px) */
+@media (max-width: 425px) {
+    .tituloInicialBullet, .textoFinalBullets {
+        font-size: 24px; /* Diminui o texto para não ocupar a tela toda */
+    }
+
+    .textoInicio h2 {
+        font-size: 38px;
+    }
+
+    .textoInicio p {
+        font-size: 18px;
+    }
+
+    .e1 h1, .e2 h1, .e3 h1, .e4 h1,
+    .d1 h1, .d2 h1, .d3 h1, .d4 h1 {
+        font-size: 22px;
+    }
+
+    .e1 h2, .e2 h2, .e3 h2, .e4 h2,
+    .d1 h2, .d2 h2, .d3 h2, .d4 h2 {
+        font-size: 18px;
+    }
+
+    .conhecaPlanos {
+        font-size: 28px;
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .planButton {
+        margin-top: 20px; /* Ajusta o espaçamento do botão no card */
+    }
+
+    .textoHighlight h2 {
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .botaoVisionary {
+        padding: 15px 30px;
+        font-size: 20px;
+    }
 }

@@ -819,8 +819,9 @@ footer{
 
 
   .V{
-    width: 120%;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 0px;
+    height: 36.3%;
   }
 
 
