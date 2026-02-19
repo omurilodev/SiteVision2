@@ -129,7 +129,7 @@ nav img{
   display: flex;
   max-width: 1160px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 60px;
   }
 
@@ -322,11 +322,10 @@ nav img{
 
 
 .roxoTexto{
-  background-color: #421F38;
   width: 1260px;
   margin: 0 auto;
-  margin-top: 200px;
-    color: #E1DAD2;
+  margin-top: 50px;
+    color: #957755;
 
   padding: 50px 20px;
   font-family: "Playfair Display", serif;
@@ -338,16 +337,15 @@ nav img{
   max-width: 1160px;
   margin: 0 auto;
   margin-top: 100px;
-  margin-bottom: 100px;
   text-align: center;
-  font-weight: 200;
-  font-size: 28px;
+  font-weight: 400;
+  font-size: 32px;
 }
 
 .textoHighlight h2 span{
-  font-weight: 500;
+  font-weight: 700;
   font-style: italic;
-  color: #fff;
+  color: #957755;
 }
 
 .botaoVisionary{
@@ -365,9 +363,9 @@ nav img{
     text-align: center;
     border: none;
     cursor: pointer;
-    margin-top: 80px;
     margin-left: 580px;
     border-radius: 15px;
+    margin-top: 50px;
 }
 
 /* DEPOIMENTOS */
