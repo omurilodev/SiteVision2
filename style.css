@@ -131,7 +131,6 @@ height: 56%;
   margin: 0 auto;
   overflow: hidden; /* Corta o vídeo no formato do raio */
   /* O PULO DO GATO: Margem negativa para subir o vídeo */
-  border-radius: 20px;
   margin-top: -60px; 
 }
 
@@ -140,6 +139,8 @@ video {
   display: block; /* Remove espaços estranhos abaixo do vídeo */
 box-shadow: 0 25px 20px -10px rgba(0, 0, 0, 0.25);
 margin-top: 50px;
+  border-radius: 20px;
+
 
 }
   
