@@ -835,3 +835,6 @@ nav{
   font-family: 'Inter';
 }
 
+.cards img{
+  border-radius: 10px;
+}
