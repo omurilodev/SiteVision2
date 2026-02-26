@@ -1024,29 +1024,215 @@ footer{
 
   }
 
-  .lightwidget-widget{
-  display: flex !important;
-  margin-top: 50px !important;
-  margin-left: 0px !important;
-  width: 460px !important;
+
+
+}
+
+
+
+  /* Seção Principal */
+  .instagram {
+    padding: 60px 20px;
+    text-align: center;
   }
-}
 
-.lightwidget-widget{
-  max-width: 1160px;
-  display: flex;
-}
+  .instagram h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
 
-.instagram-bg-wrapper {
-  max-width: 1160px;
-  margin: 0 auto;
-  margin-top: 50px;
-    /* Escolha um fundo (cor sólida, imagem ou gradiente) */
+  /* Wrapper para controle de largura e fundo */
+  .instagram-bg-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff; /* Fundo interno se desejar um efeito de card */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  /* Grid Responsiva */
+  .grid-container {
+    display: grid;
+    /* Define 4 colunas no desktop, ajustando conforme o espaço */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+  }
+
+  /* Estilização dos itens injetados pelo JS */
+  .insta-item {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    aspect-ratio: 1 / 1;
+  }
+
+  .insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+
+  .insta-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Necessário para posicionar o ícone de play */
+  }
+
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 45px;
+    height: 45px;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
-    padding: 10px; /* Dá um "respiro" entre as fotos e as bordas da caixa */
-    padding-bottom: 10px;
-    border-radius: 12px; /* Deixa os cantos arredondados, visual bem moderno */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra leve para destacar na página */
+    border-radius: 50%;
+    pointer-events: none; /* Garante que o clique passe reto pelo ícone e abra o link */
+    backdrop-filter: blur(2px); /* Toque de modernidade */
+  }
+
+.insta-header-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px auto; /* Centraliza e dá um respiro antes do grid de fotos */
+    padding-bottom: 30px;
+    border-bottom: 1px solid #dbdbdb; /* Aquela linhazinha sutil do Insta */
 }
+
+/* Foto de Perfil Redonda */
+.insta-profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f9f9f9; /* Espaço falso */
+    box-shadow: 0 0 0 2px #dbdbdb; /* Borda cinza clássica */
+    padding: 2px;
+}
+
+/* Coluna de Informações */
+.insta-profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    color: #262626;
+}
+
+/* Linha do @Username e Botão de Seguir */
+.insta-username-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.insta-username {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.insta-follow-btn {
+    background-color: #421F38; /* Azul exato do botão do Insta */
+    color: #ffffff;
+    padding: 6px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.insta-follow-btn:hover {
+    background-color: #421F38;
+}
+
+/* Estatísticas (Posts, Seguidores, Seguindo) */
+.insta-stats {
+    display: flex;
+    gap: 25px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.insta-stats strong {
+    font-weight: 600;
+}
+
+/* Biografia e Link */
+.insta-bio p {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+}
+
+.insta-link {
+    color: #00376b; /* Cor do link da bio do Insta */
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'inter';
+}
+
+
+@media (max-width: 425px) {
+        .instagram { padding: 40px 10px; }
+        .instagram h1 { font-size: 1.5rem; margin-bottom: 25px; }
+        .instagram-bg-wrapper { padding: 15px 10px; border-radius: 10px; }
+        
+        .insta-header-container { gap: 15px; margin-bottom: 20px; padding-bottom: 15px; }
+        
+        /* Foto menor para não roubar a tela inteira */
+        .insta-profile-pic img { width: 85px; height: 85px; border-width: 2px; }
+        
+        .insta-username-row { flex-direction: column; gap: 10px; }
+        .insta-username { font-size: 1.3rem; }
+        .insta-follow-btn { width: 100%; max-width: 200px; text-align: center; } /* Botão esticado no mobile */
+        
+        /* Estatísticas empilhadas idênticas ao app nativo */
+        .insta-stats { 
+            width: 100%; 
+            justify-content: space-around; 
+            gap: 10px; 
+            font-size: 0.85rem;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+            padding: 10px 0;
+            margin-top: 5px;
+        }
+        .insta-stats span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .insta-stats strong { font-size: 1rem; }
+        
+        .insta-bio p { font-size: 0.9rem; margin-bottom: 10px; }
+        
+        /* Feed com 3 colunas coladas (padrão Instagram Mobile) */
+        .grid-container { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+        .insta-item { border-radius: 0; } /* Tira a borda arredondada para colar as imagens */
+        
+        .play-icon { width: 25px; height: 25px; font-size: 12px; } /* Ícone de vídeo adaptado */
+        .insta-item:nth-child(n+4) {
+            display: none;
+        }
+    }
