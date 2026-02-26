@@ -513,6 +513,7 @@ form{
   background-image: url(./assets/fundoFormulario.webp);
   background-size: 100%;
   padding: 20px;
+  
 }
 
 
@@ -579,6 +580,7 @@ input{
   cursor: pointer !important;
   z-index: 1000;
   position: relative;
+  margin-bottom: 10px;
 }
 
 

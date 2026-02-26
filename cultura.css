@@ -348,12 +348,13 @@ nav img{
 
 .guardioes h1{
   position: absolute;
-  left: 150px;
+  left: 60px;
   top: 30px;
   color: white;
   font-weight: 500;
   font-family: "Playfair Display";
   font-size: 28px;
+  text-wrap: nowrap;
 }
 
 .guardioes p{
@@ -597,6 +598,8 @@ input{
   cursor: pointer !important;
   z-index: 1000;
   position: relative;
+  margin-bottom: 10px;
+
 }
 
 
@@ -842,8 +845,8 @@ footer{
   .member img { width: 100px; } /* Reduz sócios no mobile */
   
   .fundoTexto { width: 100%; position: relative; }
-  .tituloAlem { position: static; text-align: center; margin-top: 20px; }
-  .textoAlem { max-width: 100%; text-align: center; padding: 0 20px; }
+  .tituloAlem {  text-align: center; margin-top: -75px;}
+  .textoAlem { max-width: 100%; text-align: center; padding: 0 20px; margin-top: 60px;}
 
   /* Pilares da Cultura */
   .containerPilares {
@@ -963,8 +966,19 @@ footer{
   .textosInicio h1 { font-size: 26px; }
   
   .containerPilares h1 {
-    font-size: 20px !important;
-    top: -35px !important;
+    font-size: 24px !important;
+    top: -60px !important; /* Ajusta a posição do título para caber melhor no mobile */
+  }
+
+
+.subtituloInicio{
+  justify-self: center;
+  margin-left: -10px;
+}
+
+
+  .containerPilares p{
+    margin-top: 40px !important;
   }
 
   .passo-numero { font-size: 50px; }
@@ -1009,4 +1023,30 @@ footer{
     font-size: 20px;
 
   }
+
+  .lightwidget-widget{
+  display: flex !important;
+  margin-top: 50px !important;
+  margin-left: 0px !important;
+  width: 460px !important;
+  }
+}
+
+.lightwidget-widget{
+  max-width: 1160px;
+  display: flex;
+}
+
+.instagram-bg-wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 50px;
+    /* Escolha um fundo (cor sólida, imagem ou gradiente) */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px; /* Dá um "respiro" entre as fotos e as bordas da caixa */
+    padding-bottom: 10px;
+    border-radius: 12px; /* Deixa os cantos arredondados, visual bem moderno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra leve para destacar na página */
 }

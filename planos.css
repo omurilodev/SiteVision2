@@ -251,6 +251,9 @@ nav img{
   color: #957755;
 }
 
+
+
+
 .planos1{
   display: flex;
   max-width: 1160px;
@@ -290,7 +293,7 @@ nav img{
 .descricaoFlight1 h1, .descricaoIntensive1 h1,
  .descricaoImmersive1 h1{
   margin-top: 80px;
-  font-size: 26px;
+  font-size: 32px;
   color: #E1DAD2;
   font-weight: 600;
  }
@@ -388,6 +391,8 @@ nav img{
   font-weight: 300;
   font-family: 'PlayFair Display';
   color: #421F38;
+  font-weight: 700;
+
 
 }
 
@@ -427,7 +432,7 @@ form{
   overflow: hidden;
   background-image: url(./assets/fundoFormulario.webp);
   background-size: 100%;
-  padding: 20px;
+  
 }
 
 
@@ -494,6 +499,8 @@ input{
   cursor: pointer !important;
   z-index: 1000;
   position: relative;
+  margin-bottom: 30px;
+
 }
 
 
@@ -759,6 +766,13 @@ nav{
     .logosFooter { position: static; margin-top: 30px; justify-content: center; }
     .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
 
+    .form{
+              max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
 }
 
 /* AJUSTES PARA MOBILE (425px) */
@@ -805,4 +819,19 @@ nav{
         padding: 15px 30px;
         font-size: 20px;
     }
+
+    
+    .form h1 { font-size: 34px; }
+    .form h1::after { width: 150px; }
 }
+
+
+
+.elfsight-app-ef093914-1b10-4236-98c0-f99dd562fec1 {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: 'Inter';
+}
+
