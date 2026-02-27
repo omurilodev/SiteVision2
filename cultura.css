@@ -126,6 +126,13 @@ nav img{
 .fundoTexto{
   width: 460px;
   position: absolute;
+  border-radius: 10px;
+
+}
+
+
+.member img{
+  border-radius: 10px;
 }
 /* PILARES DA CULTURA  */
 
@@ -161,6 +168,7 @@ nav img{
 
 .fundoTitulo{
   width: 460px;
+  border-radius: 10px;
 }
 
 .visao, .honra, .frente, .verdade{
