@@ -168,9 +168,24 @@ hamburger.addEventListener("click", () => {
 });
 
 // Opcional: Fechar o menu ao clicar em um link
-document.querySelectorAll(".navegacao a").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navegacao.classList.remove("active");
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('videoCultura');
+  const banner = document.getElementById('bannerCultura');
+
+  video.addEventListener('ended', () => {
+    // 1. Inicia o fade-out do vídeo
+    video.style.opacity = '0';
+
+    // 2. Espera o tempo da animação (500ms) para sumir com o vídeo e preparar o banner
+    setTimeout(() => {
+      video.style.display = 'none';
+      banner.style.display = 'block'; // O banner entra na tela, mas invisível (opacity 0)
+      
+      // 3. Um delay mínimo (50ms) para o navegador registrar o display: block antes de animar
+      setTimeout(() => {
+        banner.style.opacity = '1'; // Inicia o fade-in do banner
+      }, 50); 
+      
+    }, 500); // Este valor de 500ms deve bater com o tempo do CSS do vídeo
   });
 });

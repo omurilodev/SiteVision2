@@ -394,12 +394,14 @@ nav img{
     box-shadow: -1px 13px 12.7px 9px rgba(0, 0, 0, 0.14);
     color: white;
     position: relative;
+    border-radius: 10px;
 }
 
 
 .tornarVisionary{
     font-weight: 500;
     font-family: 'Playfair Display', serif;
+  
 }
 
 .tornarVisionary span{
@@ -505,6 +507,7 @@ nav img{
     cursor: pointer;
     margin-top: 60px;
     margin-left: 600px;
+    border-radius: 10px;
 }
 
 
