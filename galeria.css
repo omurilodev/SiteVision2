@@ -38,6 +38,7 @@ body {
   /* Remova o max-width: 100vw se puder, ele causa bugs com scroll */
   width: 100%;
   overflow-x: hidden;
+  zoom: 0.9;
 }
 
 *{
@@ -96,6 +97,7 @@ nav img{
   position: absolute;
   left: -300px;
   opacity: 0.2;
+  z-index: -1;
 }
 
 
@@ -126,4 +128,74 @@ nav img{
 .galeriaPrincipal span{
   color: #421F38;
   font-style: italic;
+}
+
+
+.imagensGaleria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px; /* Dá um respiro depois do h1 */
+}
+
+/* Padroniza as imagens que vêm do Supabase e as do HTML */
+.imagensGaleria img {
+  width: 100%;
+  height: 300px; /* Altura fixa para manter o grid alinhado */
+  object-fit: cover; /* Faz o recorte perfeito sem distorcer a foto */
+  border-radius: 8px; /* Cantos levemente arredondados, bem elegante */
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+}
+
+/* Efeito premium ao passar o mouse */
+.imagensGaleria img:hover {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+
+
+/* Container da foto */
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* O botão de download flutuante */
+.btn-download {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #421F38; /* O seu roxo */
+  border: none;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  font-family: 'inter', serif;
+  
+  /* Animação inicial escondida */
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Quando passa o mouse na foto, o botão sobe e aparece */
+.galeria-item:hover .btn-download {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito ao passar o mouse em cima do botão */
+.btn-download:hover {
+  background-color: #0F1F2E; /* O seu dourado */
+  color: #ffffff;
 }
