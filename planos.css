@@ -187,6 +187,30 @@ nav img{
   font-weight: 200;
 }
 
+.d5{
+  justify-content: center !important;
+  align-content: center !important;
+  background-color: #421F38;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 1160px;
+  margin-top: 40px;
+}
+
+.d5 h1{
+  font-size: 26px;
+  color: #C7B299;
+  font-style: italic;
+}
+
+.d5 h2{
+  font-size: 22px;
+  font-family: 'Inter';
+  font-weight: 200;
+}
+
 
 /* TEXTO INICIAL DO BANNER */
 
