@@ -87,6 +87,24 @@ nav img{
 }
 
 
+
+/* VIDEO LANDING*/
+
+.inicio{
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: auto;
+}
+
+.videoLanding{
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+
+
 /* BENEFICIOS */
 
 .backgroundSino{
@@ -94,7 +112,7 @@ nav img{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 150px;
+  padding: 80px;
 }
 
 .tituloInicialBullet{
@@ -195,7 +213,9 @@ nav img{
   border-radius: 20px;
   color: white;
   text-align: center;
-  width: 1160px;
+  width: 550px;
+  max-width: 1160px;
+  margin: 0 auto;
   margin-top: 40px;
 }
 
@@ -214,13 +234,7 @@ nav img{
 
 /* TEXTO INICIAL DO BANNER */
 
-.inicio{
-  max-width: 1160px;
-  background-color: gray;
-  margin: 0 auto;
-  margin-top: 50px;
-  height: 400px;
-}
+
 
 .textoInicio{
   display: flex;
