@@ -984,7 +984,8 @@ footer{
 
 .subtituloInicio{
   justify-self: center;
-  margin-left: -10px;
+  justify-content: center;
+  margin-left: 0 !important;
 }
 
 
