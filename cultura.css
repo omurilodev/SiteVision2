@@ -982,10 +982,13 @@ footer{
   }
 
 
-.subtituloInicio{
-  justify-self: center;
-  justify-content: center;
-  margin-left: 0 !important;
+.subtituloInicio {
+  display: block;           /* Garante que o elemento ocupe sua própria linha */
+  width: 100%;              /* Ocupa a largura total para o text-align funcionar */
+  text-align: center;       /* Centraliza o texto internamente */
+  margin-left: auto !important; 
+  margin-right: auto !important; /* Essas duas linhas centralizam o bloco em si */
+  justify-content: center;  /* Mantemos por segurança caso seja um flex container */
 }
 
 
