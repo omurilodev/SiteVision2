@@ -90,16 +90,38 @@ nav img{
 
 /* VIDEO LANDING*/
 
-.inicio{
-  max-width: 1160px;
+.inicio {
+  width: 1160px;       /* Largura total */
   margin: 0 auto;
-  margin-top: 50px;
-  height: auto;
+  height: 500px;     /* Defina aqui a altura desejada para o corte */
+  overflow: hidden;  /* Esconde o que sobrar do vídeo */
+  position: relative;
+  margin-top: 60px;
+  border-radius: 15px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 
+              0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.inicio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente do transparente (topo) para o preto suave (base) */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  z-index: 1; /* Garante que fique acima do vídeo */
+  pointer-events: none; /* Permite clicar no vídeo através do gradiente, se necessário */
 }
 
-.videoLanding{
+
+
+.inicio video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* O segredo para não distorcer o vídeo */
+  object-position: center; /* Centraliza o vídeo no corte */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
 }
 
@@ -823,6 +845,10 @@ nav{
         font-size: 38px;
     }
 
+    .backgroundSino{
+      padding: 10px;
+    }
+
     .textoInicio p {
         font-size: 18px;
     }
@@ -836,6 +862,30 @@ nav{
     .d1 h2, .d2 h2, .d3 h2, .d4 h2 {
         font-size: 18px;
     }
+
+    .d5{
+      width: 100%;
+    }
+
+    .inicio {
+    width: 95%;
+    height: 250px;      /* Altura reduzida para não "engolir" a tela do celular */
+    margin: 20px auto;     /* Margem menor para telas pequenas */
+    border-radius: 12px; /* Arredondado mais sutil para telas menores */
+    box-shadow: none;
+    /* Sombra um pouco mais leve para não sobrecarregar o mobile */
+    background: none;
+  }
+  
+  .inicio::after{
+    box-shadow: none;
+    background: none;
+
+  }
+
+  .inicio video {
+    box-shadow: none;
+  }
 
     .conhecaPlanos {
         font-size: 28px;
