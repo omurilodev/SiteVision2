@@ -1,3 +1,78 @@
+/* =========================================
+ * ESTILOS DOS TOASTS (POPUP PREMIUM)
+ * ========================================= */
+#toast-sucesso, #toast-curriculo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; /* Os dois ancorados na direita para a animação funcionar! */
+  background-color: #421F38; /* Fundo alinhado com a identidade */
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #957755; /* Detalhe dourado/marrom */
+  transform: translateX(150%); /* Empurra 150% para a direita (fora da tela) */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999;
+  font-family: inherit; /* Vai herdar a tipografia do seu site */
+}
+
+/* Quando o JS adiciona esta classe, o Toast entra na tela */
+#toast-sucesso.toast-show, #toast-curriculo.toast-show {
+  transform: translateX(0);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-text h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #957755;
+}
+
+.toast-text p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+#fechar-toast {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#fechar-toast:hover {
+  opacity: 1;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 600px) {
+  #toast-sucesso, #toast-curriculo {
+    bottom: 20px;
+    right: 20px;
+    left: 20px; /* No mobile ele ocupa a largura da tela */
+    transform: translateY(150%); /* Esconde jogando para baixo no mobile */
+  }
+  
+  #toast-sucesso.toast-show, #toast-curriculo.toast-show {
+    transform: translateY(0); /* Sobe para a tela no mobile */
+  }
+}
+
 .hamburger {
   display: none;
   cursor: pointer;

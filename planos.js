@@ -61,3 +61,68 @@ document.querySelectorAll(".navegacao a").forEach(link => {
     navegacao.classList.remove("active");
   });
 });
+
+
+/** FORMULÁRIO */
+const formulario = document.getElementById('form-contato');
+const botao = document.getElementById('enviar');
+
+// Captura os elementos do nosso Popup (Toast)
+const toast = document.getElementById('toast-sucesso');
+const btnFecharToast = document.getElementById('fechar-toast');
+
+// Funções para controlar a exibição do popup
+function mostrarToast() {
+  toast.classList.add('toast-show');
+  // Esconde automaticamente após 5 segundos
+  setTimeout(() => { esconderToast(); }, 5000);
+}
+
+function esconderToast() {
+  toast.classList.remove('toast-show');
+}
+
+// Evento para fechar no botão "X"
+if (btnFecharToast) {
+  btnFecharToast.addEventListener('click', esconderToast);
+}
+
+formulario.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Impede o recarregamento da página
+
+  // Muda o texto do botão para dar feedback ao usuário
+  botao.innerText = "ENVIANDO...";
+  botao.disabled = true;
+
+  // Captura os dados de forma automática
+  const formData = new FormData(formulario);
+  const dados = Object.fromEntries(formData);
+
+  // URL do Webhook do n8n (Lembre-se de mudar para a URL de Produção depois)
+  const WEBHOOK_URL = 'https://neown8n.neowchat.com.br/webhook-test/contato-vision';
+
+  try {
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    });
+
+    if (response.ok) {
+      // Dispara o popup premium no lugar do alert()
+      mostrarToast(); 
+      formulario.reset(); // Limpa o formulário
+    } else {
+      alert('Ops! Houve um erro no servidor.');
+    }
+  } catch (error) {
+    console.error('Erro ao conectar com n8n:', error);
+    alert('Erro de conexão. Verifique sua internet.');
+  } finally {
+    // Restaura o botão
+    botao.innerText = "LET'S GO!";
+    botao.disabled = false;
+  }
+});

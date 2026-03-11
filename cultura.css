@@ -1,3 +1,71 @@
+/* Estilos do Toast / Popup */
+#toast-sucesso {
+  position: fixed;
+  bottom: 30px;
+  left: 0px;
+  background-color: #421F38; /* Fundo alinhado com a identidade */
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #957755; /* Detalhe dourado/marrom */
+  transform: translateX(150%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999;
+  font-family: inherit; /* Vai herdar a tipografia do seu site */
+}
+
+#toast-sucesso.toast-show {
+  transform: translateX(0);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-text h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #957755;
+}
+
+.toast-text p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+#fechar-toast {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#fechar-toast:hover {
+  opacity: 1;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 600px) {
+  #toast-sucesso {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+
 .hamburger {
   display: none;
   cursor: pointer;
@@ -520,6 +588,7 @@ nav img{
 .instagram h1{
   text-align: center;
   font-size: 46px;
+  padding-top: 130px;
   font-family: "Playfair Display";
   font-style: italic;
   font-weight: 400;
@@ -950,6 +1019,8 @@ footer{
 
   }
 
+
+
   .instagram h1 { font-size: 30px; }
       footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
     .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
@@ -981,6 +1052,9 @@ footer{
     top: -60px !important; /* Ajusta a posição do título para caber melhor no mobile */
   }
 
+.form{
+  margin-top: 5px !important;
+}
 
 .subtituloInicio {
   display: block;           /* Garante que o elemento ocupe sua própria linha */
@@ -991,6 +1065,12 @@ footer{
   justify-content: center;  /* Mantemos por segurança caso seja um flex container */
 }
 
+.check {
+    display: block; /* Traz o ícone de volta à vida apenas aqui */
+    width: 64px; /* Tamanho minimalista, ideal para não poluir o layout em linha */
+    height: auto;
+    margin: -5px auto 0px auto; /* Centraliza perfeitamente e dá um leve respiro antes do texto */
+  }
 
   .containerPilares p{
     margin-top: 40px !important;
@@ -1007,17 +1087,38 @@ footer{
     justify-content: center;
   }
 
-  .passos-container {
+ .passos-container {
     display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    justify-content: center;
-    gap: 50px;
+    flex-direction: row; /* Altera de coluna para linha */
+    flex-wrap: nowrap; /* Força os itens a ficarem na mesma linha */
+    width: 100%;
+    justify-content: space-between; /* Distribui o espaço uniformemente */
+    gap: 10px; /* Reduzimos o gap drásticamente para caber lado a lado */
+    
+    /* Prevenção de quebra de tela com toque de interface nativa (Apple-style) */
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
   }
 
-  .passo-item p{
-    font-size: 16px;
-    max-width: 100px;
+  /* Oculta a barra de rolagem no Webkit (Chrome/Safari) para manter o visual clean */
+  .passos-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .passo-item {
+    flex: 1; /* Faz os passos dividirem o espaço disponível de forma igual */
+    min-width: 150px; /* Evita que o flexbox esmague o conteúdo além do limite legível */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .passo-item p {
+    font-size: 16px; /* Uma leve redução (de 16px para 14px) para respiro visual na linha */
+    max-width: 100%; /* Remove a trava fixa de 100px para aproveitar a flexibilidade do container */
+    word-break: break-word; /* Evita que uma palavra longa quebre a harmonia do bloco */
   }
 
   .passo-item:first-child::before{
@@ -1047,7 +1148,7 @@ footer{
 
   /* Seção Principal */
   .instagram {
-    padding: 60px 20px;
+    padding: 0px 20px;
     text-align: center;
   }
 
@@ -1057,6 +1158,7 @@ footer{
     color: #333;
     margin-bottom: 40px;
     font-weight: 700;
+    margin-top: -80px !important;
   }
 
   /* Wrapper para controle de largura e fundo */

@@ -114,7 +114,7 @@
       <div class="form-block roxo">
         <h2 class="contatoTime">Fale com o nosso <span>time</span></h2>
 
-        <form action="">
+        <form action="" id="form-contato">
           <label for="name">Nome:</label>
           <input type="text" id="name" name="name" required>
           <label for="idade">Idade:</label>
@@ -146,43 +146,42 @@
 
       <div class="form-block">
         <h2 class="contatoCurriculo">Faça parte do nosso <br><span>instituto</span></h2>
-        <form>
-          <label for="name">Nome:</label>
-          <input type="text" id="name" name="name" required>
-          <label for="WhatsApp">WhatsApp:</label>
-          <input type="text" id="area" name="area" required>
-          <label for="area">Área de atuação:</label>
-          <input type="text" id="area" name="area" required>
-          <label for="quem">Quem é você?</label>
-          <input type="text" id="quem" name="quem">
-          <label for="conheceu">Como nos conheceu?</label>
-          <select name="conheceu" id="conheceu">
-            <option value="visionary" selected disabled hidden>Conheci a Vision através de:</option>
-            <option value="visionary">Indicação de um Visionary</option>
-            <option value="influencer">Indicação de um Influencer</option>
-            <option value="partners">Através de um dos Partners
-            </option>
-            <option value="time">Através de alguém do nosso time
-            </option>
-            <option value="instagram">Nos encontrou no Instagram
-            </option>
-            <option value="google">Nos encontrou no Google
-            </option>
-            <option value="outro">Outro
-            </option>
-          </select>
-          <label for="social">Rede Social:</label>
-          <input type="text" id="social" name="social" required>
+        <form id="form-trabalhe-conosco">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="WhatsApp">WhatsApp:</label>
+  <input type="tel" id="WhatsApp" name="WhatsApp" required>
+  
+  <label for="area">Área de atuação:</label>
+  <input type="text" id="area" name="area" required>
+  
+  <label for="quem">Quem é você?</label>
+  <input type="text" id="quem" name="quem">
+  
+  <label for="conheceu">Como nos conheceu?</label>
+  <select name="conheceu" id="conheceu">
+    <option value="visionary" selected disabled hidden>Conheci a Vision através de:</option>
+    <option value="visionary">Indicação de um Visionary</option>
+    <option value="influencer">Indicação de um Influencer</option>
+    <option value="partners">Através de um dos Partners</option>
+    <option value="time">Através de alguém do nosso time</option>
+    <option value="instagram">Nos encontrou no Instagram</option>
+    <option value="google">Nos encontrou no Google</option>
+    <option value="outro">Outro</option>
+  </select>
+  
+  <label for="social">Rede Social:</label>
+  <input type="text" id="social" name="social" required>
 
-          <label class="labelObjetivo" for="objetivo">Onde você quer estar daqui a 5 anos?</label>
-          <textarea name="objetivo" id="objetivo"></textarea>
+  <label class="labelObjetivo" for="objetivo">Onde você quer estar daqui a 5 anos?</label>
+  <textarea name="objetivo" id="objetivo"></textarea>
 
-          <label for="curriculo" class="labelCurriculo">Faça upload do currículo</label>
-
-
-          <input type="file" id="curriculo" name="curriculo" required>
-          <button type="submit" id="enviar">ENVIAR</button>
-        </form>
+  <label for="curriculo" class="labelCurriculo">Faça upload do currículo</label>
+  <input type="file" id="curriculo" name="curriculo" required>
+  
+  <button type="submit" id="enviar">ENVIAR</button>
+</form>
       </div>
     </section>
 
@@ -238,6 +237,29 @@
       <a href="https://www.youtube.com/@visioninstituteenglish"><img src="./assets/youLogo_1x.webp" alt="youTubeLogo" class="yt logoFooter"></a>
     </div>
   </footer>
+  <div id="toast-sucesso" class="toast-hidden">
+  <div class="toast-content">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6L9 17L4 12" stroke="#957755" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="toast-text">
+      <h4>Let's Go!</h4>
+      <p>Seus dados foram enviados com sucesso.</p>
+    </div>
+  </div>
+  <button id="fechar-toast">&times;</button>
+</div>
+<div id="toast-curriculo" class="toast-hidden">
+  <div class="toast-content">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6L9 17L4 12" stroke="#957755" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="toast-text">
+      <h4>Sucesso!</h4>
+      <p>Seu currículo foi enviado.</p>
+    </div>
+  </div>
+</div>
 
   <script src="./contato.js"></script>
 </body>
