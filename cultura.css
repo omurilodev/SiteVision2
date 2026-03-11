@@ -1051,6 +1051,15 @@ footer{
     font-size: 24px !important;
     top: -60px !important; /* Ajusta a posição do título para caber melhor no mobile */
   }
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative; /* Segura qualquer elemento absolute fujão */
+  margin: 0;
+  padding: 0;
+}
+
 
 .form{
   margin-top: 5px !important;
@@ -1099,6 +1108,9 @@ footer{
     overflow-x: auto; 
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+    max-width: 100vw; 
+    box-sizing: border-box; 
+    padding: 0 10px; /* Dá o respiro sem somar na largura total */
   }
 
   /* Oculta a barra de rolagem no Webkit (Chrome/Safari) para manter o visual clean */
@@ -1108,7 +1120,7 @@ footer{
 
   .passo-item {
     flex: 1; /* Faz os passos dividirem o espaço disponível de forma igual */
-    min-width: 150px; /* Evita que o flexbox esmague o conteúdo além do limite legível */
+    min-width: 130px; /* Evita que o flexbox esmague o conteúdo além do limite legível */
     display: flex;
     flex-direction: column;
     align-items: center;
