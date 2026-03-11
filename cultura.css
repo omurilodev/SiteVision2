@@ -1158,7 +1158,8 @@ footer{
     color: #333;
     margin-bottom: 40px;
     font-weight: 700;
-    margin-top: -80px !important;
+    margin-top: -60px !important;
+    padding-top: 0px !important;
   }
 
   /* Wrapper para controle de largura e fundo */
