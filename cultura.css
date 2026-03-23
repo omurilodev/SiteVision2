@@ -2,7 +2,7 @@
 #toast-sucesso {
   position: fixed;
   bottom: 30px;
-  left: 0px;
+  right: 30px;
   background-color: #421F38; /* Fundo alinhado com a identidade */
   color: #ffffff;
   padding: 16px 24px;
@@ -14,13 +14,22 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   border-left: 4px solid #957755; /* Detalhe dourado/marrom */
   transform: translateX(150%);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+visibility: hidden;
+transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            opacity 0.4s ease,
+            visibility 0s linear 0.4s;
   z-index: 9999;
   font-family: inherit; /* Vai herdar a tipografia do seu site */
 }
 
 #toast-sucesso.toast-show {
   transform: translateX(0);
+  opacity: 1;
+visibility: visible;
+transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            opacity 0.4s ease,
+            visibility 0s linear 0s;
 }
 
 .toast-content {
