@@ -99,7 +99,7 @@ formulario.addEventListener('submit', async (e) => {
   const dados = Object.fromEntries(formData);
 
   // URL do Webhook do n8n (Lembre-se de mudar para a URL de Produção depois)
-  const WEBHOOK_URL = 'https://neown8n.neowchat.com.br/webhook-test/contato-vision';
+  const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision';
 
   try {
     const response = await fetch(WEBHOOK_URL, {

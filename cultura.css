@@ -900,7 +900,8 @@ footer{
     background-color: #421F38;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+       align-items: left;
+    padding-left: 50px;
     transition: 0.4s;
     box-shadow: -10px 0 20px rgba(0,0,0,0.3);
     z-index: 1000;

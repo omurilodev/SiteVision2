@@ -60,7 +60,7 @@ if (formContato) {
 
     const formData = new FormData(formContato);
     const dados = Object.fromEntries(formData);
-    const WEBHOOK_URL = 'https://neown8n.neowchat.com.br/webhook-test/contato-vision'; // URL Antiga
+    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision'; // URL Antiga
 
     try {
       const response = await fetch(WEBHOOK_URL, {
