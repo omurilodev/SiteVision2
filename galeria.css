@@ -39,6 +39,13 @@ body {
   width: 100%;
   overflow-x: hidden;
   zoom: 0.9;
+  display: flex;
+  flex-direction: column;
+  min-height: 112vh; /* Adicionado para colar o footer embaixo */
+}
+
+main {
+  flex: 1; /* Faz o main expandir e empurrar o footer para baixo */
 }
 
 *{
@@ -46,11 +53,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   
-}
-
-body{
-  background-color: #E1DAD2;
-
 }
 
 a{
@@ -90,89 +92,173 @@ nav img{
   color: white;
 }
 
+/* DROPDOWN GALERIA */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-/* GALERIA */
+.dropdown > a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
 
-.logoGaleria{
+.dropdown-content {
+  display: none;
   position: absolute;
-  left: -300px;
-  opacity: 0.2;
-  z-index: -1;
+  background-color: #421F38; /* Fundo roxo/vinho do header */
+  min-width: 180px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  border: 1px solid #957755; /* Detalhe dourado */
+  border-radius: 8px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+/* Triângulo indicador */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #957755;
+}
+
+.dropdown-content a {
+  color: white !important;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #957755;
+  color: white !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsividade Dropdown */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    display: block !important; /* No mobile ele fica sempre visível no menu hambúrguer */
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding-left: 15px;
+    transform: none;
+    margin-top: 0;
+  }
+  
+  .dropdown-content::before {
+    display: none;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
 }
 
 
-.galeria-container{
-  max-width: 1160px;
+/* =========================================
+   CONTAINERS (TRAVADOS EM 1160PX)
+   ========================================= */
+
+
+
+.galeria-container {
+  max-width: 1160px; /* Travado em 1160px */
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  padding: 20px; 
 }
 
-.galeriaPrincipal{
-  max-width: 1160px;
+.galeriaPrincipal {
+  max-width: 1160px; /* Travado em 1160px */
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px; 
   margin-top: 50px;
 }
 
-.galeriaPrincipal h1{
-  max-width: 600px;
-  color: #957755;
-  font-weight: 400;
-  font-size: 42px;
-  font-family: 'Playfair Display', serif;
-}
-
-.galeriaPrincipal span{
-  color: #421F38;
-  font-style: italic;
-}
-
+/* =========================================
+   GALERIA - 4 COLUNAS CRAVADAS (GRID BRUTO)
+   ========================================= */
 
 .imagensGaleria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* A ORDEM ABSOLUTA: Exatamente 4 colunas do mesmo tamanho */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
-  margin-top: 40px; /* Dá um respiro depois do h1 */
+  margin-top: 40px; 
 }
 
-/* Padroniza as imagens que vêm do Supabase e as do HTML */
-.imagensGaleria img {
-  width: 100%;
-  height: 300px; /* Altura fixa para manter o grid alinhado */
-  object-fit: cover; /* Faz o recorte perfeito sem distorcer a foto */
-  border-radius: 8px; /* Cantos levemente arredondados, bem elegante */
-  transition: transform 0.4s ease, filter 0.4s ease;
-  cursor: pointer;
-}
-
-/* Efeito premium ao passar o mouse */
-.imagensGaleria img:hover {
-  transform: scale(1.03);
-  filter: brightness(0.8);
-}
-
-
-/* Container da foto */
+/* Container de cada foto */
 .galeria-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  height: 300px; /* A sua altura padronizada */
+  width: 100%; /* Força a ocupar a largura total da sua coluna no Grid */
 }
 
-/* O botão de download flutuante */
+/* A Foto */
+.galeria-item img,
+.imagensGaleria > img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* Centraliza e corta as sobras laterais para encaixar nas 4 colunas */
+  border-radius: 8px; 
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+  display: block;
+}
+
+/* Efeito premium ao passar o mouse */
+.galeria-item img:hover,
+.imagensGaleria > img:hover {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+
+/* =========================================
+   BOTÃO DE DOWNLOAD
+   ========================================= */
 .btn-download {
   position: absolute;
   bottom: 15px;
   right: 15px;
   background-color: rgba(255, 255, 255, 0.95);
-  color: #421F38; /* O seu roxo */
+  color: #421F38; 
   border: none;
   padding: 8px 14px;
   border-radius: 30px;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -180,22 +266,313 @@ nav img{
   align-items: center;
   gap: 6px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  font-family: 'inter', serif;
   
-  /* Animação inicial escondida */
   opacity: 0;
   transform: translateY(15px);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Quando passa o mouse na foto, o botão sobe e aparece */
 .galeria-item:hover .btn-download {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Efeito ao passar o mouse em cima do botão */
 .btn-download:hover {
-  background-color: #0F1F2E; /* O seu dourado */
+  background-color: #0F1F2E; 
   color: #ffffff;
+}
+
+/* =========================================
+   RESPONSIVIDADE (PROTEÇÃO PARA CELULAR)
+   ========================================= */
+/* Se a tela for menor que um tablet, 4 colunas ficam espremidas demais. 
+   Isso reduz para 2 colunas e depois para 1 no celular. */
+@media (max-width: 900px) {
+  .imagensGaleria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .imagensGaleria {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.btn-download {
+  /* ... resto das suas cores e paddings ... */
+  z-index: 10; /* <--- ADICIONE ISSO */
+  opacity: 1;  /* <--- MUDE ISSO (era 0) */
+  transform: translateY(0); /* <--- MUDE ISSO (era 15px) */
+}
+
+.btn-download {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #421F38;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  z-index: 10;
+  
+  /* ESTADO INICIAL: ESCONDIDO */
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none; /* Impede cliques enquanto invisível */
+  transition: all 0.3s ease;
+}
+
+/* ESTADO HOVER: APARECE */
+.galeria-item:hover .btn-download {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* Habilita o clique */
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  nav {
+        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logoPrincipal  {
+      width: 150px;
+      height: auto;
+    }
+
+    .hamburger {
+    display: flex; /* Mostra o botão no mobile */
+    z-index: 1100;
+  }
+
+    .navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Esconde o menu para fora da tela */
+    width: 50%;
+    height: 50vh;
+    background-color: #421F38;
+    flex-direction: column;
+    justify-content: center;
+       align-items: left;
+    padding-left: 50px;
+    transition: 0.4s;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .navegacao.active {
+    right: 0; /* Traz o menu para dentro da tela */
+  }
+
+  /* Animação do X no hambúrguer quando ativo */
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navegacao li {
+    font-size: 14px;
+  }
+  /* Header e Seção Inicial */
+  .container {
+    padding-top: 60px;
+    text-align: center;
+  }
+  .textosInicio h1 { font-size: 32px; }
+  .fundoPrincipal { width: 100%; height: auto; object-fit: cover; }
+}
+
+/* Estilo da Lightbox - Modal */
+.lightbox {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 2000; /* Acima de tudo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo preto elegante */
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-expandida {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain; /* Mantém a proporção da imagem */
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  transform: scale(0.9); /* Inicia levemente menor para animação */
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+/* Quando o lightbox abrir, a imagem ganha escala total */
+.lightbox.ativo .imagem-expandida {
+  transform: scale(1);
+}
+
+.fechar-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fechar-lightbox:hover {
+  color: #957755; /* O seu dourado */
+}
+
+/* Estilo específico para o botão de download dentro do zoom */
+#btn-download-lightbox {
+  position: absolute;
+  /* Joga o botão para o canto direito, sobrepondo a imagem */
+  bottom: 30px; 
+  right: 40px; 
+  left: auto; /* Remove a centralização antiga */
+  transform: none; /* Remove a centralização antiga */
+  
+  opacity: 1 !important; 
+  pointer-events: auto !important; 
+  
+  /* Tamanho menor (exatamente igual ao botão da grade) */
+  padding: 8px 14px;
+  font-size: 14px;
+  z-index: 2000;
+}
+
+#btn-download-lightbox:hover {
+  transform: scale(1.05); /* Mantém só o efeitinho de crescer */
+}
+
+
+.galeria-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.btn-aba {
+  background: transparent;
+  border: 2px solid #957755; /* O dourado do Vision */
+  color: #957755;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-aba.active, .btn-aba:hover {
+  background-color: #957755;
+  color: #fff;
+}
+
+footer{
+ background: #421F38;
+  height: 250px;
+  display: flex;
+  position: relative;
+  font-family: 'Playfair Display';
+}
+
+.xadrez{
+  position: absolute;
+  bottom: -1;
+  left: -1;
+  right: 0;
+  height: 250px;
+}
+
+
+
+.NaveFooter{
+  font-family: 'Playfair Display', serif;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+
+}
+
+.FooterNavegacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -100px;  
+}
+
+
+.NavFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 50px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.tituloNav{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  font-family: 'Playfair Display', serif;
+}
+
+
+
+.contatoFooter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 50px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 18px;
+}
+
+
+.logoFooter{
+  height: 50px;
+  cursor: pointer;
+}
+
+
+.logosFooter{
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 90px;
+  height: 60px;
+}
+
+
+@media (max-width: 786px) {
+      /* Footer */
+    footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
+    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
+    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
 }

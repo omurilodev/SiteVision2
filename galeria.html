@@ -37,24 +37,75 @@
         <a href="./contato.html">
           <li>CONTATO</li>
         </a>
-        <a href="./galeria.html">
-          <li>GALERIA</li>
-        </a>
+        <li class="dropdown">
+          <a href="./galeria.html">GALERIA</a>
+          <div class="dropdown-content">
+            <a href="./galeria.html?ano=2025">Vision Day '25</a>
+            <a href="./galeria.html?ano=2026">Vision Day '26</a>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="galeriaPrincipal">
-      <img class="logoGaleria" src="./assets/logoGaleria.webp" alt="">
-      
+      <div class="galeria-nav">
+        <button class="btn-aba active" data-ano="2025">Vision Day 2025</button>
+        <button class="btn-aba" data-ano="2026">Vision Day 2026</button>
+      </div>
       <div class="imagensGaleria">
 
       </div>
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="./galeria.js"></script>
+  <div id="lightbox" class="lightbox">
+    <span class="fechar-lightbox">&times;</span>
+    <img class="imagem-expandida" src="" alt="Zoom">
+
+    <button id="btn-download-lightbox" class="btn-download">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download
+    </button>
+  </div>
+  <footer>
+    <img class="xadrez" src="./assets/xadrezFooter.webp" alt="xadrezFooter">
+    <div class="FooterNavegacao">
+
+      <ul class="NavFooter">
+        <li class="tituloNav">Navegação</li>
+        <a href="./cultura.html">
+          <li class="topic">Cultura</li>
+        </a>
+        <a href="./planos.html">
+          <li class="topic">Nossos planos</li>
+        </a>
+        <a href="./contato.html">
+          <li class="topic">Contato</li>
+        </a>
+      </ul>
+      <ul class="contatoFooter">
+        <a href="tel:+5511949225614">
+          <li class="topic">+55 11 94922-5614</li>
+        </a>
+        <a href="mailto:visioninstitute@contato.com">
+          <li class="topic">visioninstitute@contato.com</li>
+        </a>
+      </ul>
+    </div>
+    <div class="logosFooter">
+      <a href="https://www.instagram.com/visioninstituteenglish/"><img src="./assets/instaLogo_1x.webp" alt="instaLogo" class="logoFooter"></a>
+      <a href="https://www.linkedin.com/company/visioninstituteenglish"><img src="./assets/linkLogo_1x.webp" alt="LinkedInLogo" class="logoFooter"></a>
+      <a href="https://www.youtube.com/@visioninstituteenglish"><img src="./assets/youLogo_1x.webp" alt="youTubeLogo" class="yt logoFooter"></a>
+    </div>
+  </footer>
 </body>
 
 </html>

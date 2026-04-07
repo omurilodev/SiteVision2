@@ -164,6 +164,98 @@ nav img{
   color: white;
 }
 
+/* DROPDOWN GALERIA */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown > a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #421F38; /* Fundo roxo/vinho do header */
+  min-width: 180px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  border: 1px solid #957755; /* Detalhe dourado */
+  border-radius: 8px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+/* Triângulo indicador */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #957755;
+}
+
+.dropdown-content a {
+  color: white !important;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #957755;
+  color: white !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsividade Dropdown */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    display: block !important; /* No mobile ele fica sempre visível no menu hambúrguer */
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding-left: 15px;
+    transform: none;
+    margin-top: 0;
+  }
+  
+  .dropdown-content::before {
+    display: none;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
 /* CONTEUDO */
 
 ul, li{
