@@ -594,10 +594,6 @@ font-family: "Playfair Display", serif;
   font-style: italic;
 }
 
-.quebra-mobile {
-  display: none;
-}
-
 /* BOTÕES 5 ANOS */
 
 
@@ -968,9 +964,6 @@ footer{
     .anos h1 { font-size: 30px; text-align: center; }
     .aguiaHome { display: none; } /* Remove a águia que vaza a tela */
     
-    .quebra-mobile { display: block; }
-    .CTA, .textoDescricaoAnos { padding: 0 20px; }
-
     /* Botões (Um em cima do outro) */
     .botoes { 
         flex-direction: column; 

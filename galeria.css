@@ -212,7 +212,7 @@ nav img{
   width: 100%;
   margin: 0 auto;
   padding: 20px; 
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 /* =========================================
@@ -224,7 +224,7 @@ nav img{
   /* A ORDEM ABSOLUTA: Exatamente 4 colunas do mesmo tamanho */
   grid-template-columns: repeat(4, 1fr); 
   gap: 20px;
-  margin-top: 10px; 
+  margin-top: 40px; 
 }
 
 /* Container de cada foto */
@@ -307,11 +307,7 @@ nav img{
     grid-template-columns: repeat(2, 1fr);
   }
   .galeria-item {
-    height: 250px; /* Aumentado para evitar que fiquem deitadas (landscape) */
-  }
-  .galeria-item img,
-  .imagensGaleria > img {
-    image-orientation: from-image; /* Corrige imagens com lado rotacionado no EXIF */
+    height: 180px;
   }
 }
 
@@ -410,14 +406,6 @@ nav img{
   }
   .textosInicio h1 { font-size: 32px; }
   .fundoPrincipal { width: 100%; height: auto; object-fit: cover; }
-  
-  .galeriaPrincipal {
-    margin-top: -25px; /* Puxa a galeria para dentro do header no celular caso haja margens "fantasmas" */
-    padding-top: 0px;
-  }
-  .imagensGaleria {
-    margin-top: 0px;
-  }
 }
 
 /* Estilo da Lightbox - Modal */
