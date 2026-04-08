@@ -598,7 +598,11 @@ footer{
 @media (max-width: 768px) {
 
 nav {
-        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
     }
@@ -644,7 +648,10 @@ nav {
 
   .container {
     grid-template-columns: 1fr; /* Transforma as duas colunas em uma */
-    padding: 20px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
     gap: 40px;
   }
 
@@ -692,11 +699,20 @@ nav {
     border-radius: 15px;
   }
 
-      footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    /* Footer - Padding Cimentado nas laterais e gap coeso */
+    footer { 
+        height: auto; 
+        padding: 40px 20px; 
+        width: 100%;
+        box-sizing: border-box;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
     .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
     .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
-    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
-    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; gap: 15px; }
+    .xadrez { display: none; }
 
 }
 
@@ -707,8 +723,9 @@ nav {
   }
 
   .roxo {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box; 
   }
 
   .labelCurriculo {

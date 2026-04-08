@@ -62,10 +62,34 @@ async function carregarGaleria(ano = '2025') {
       wrapper.className = 'galeria-item';
 
       const imgElement = document.createElement('img');
-      imgElement.src = publicUrl;
       imgElement.alt = `Vision Day ${ano} - ${foto.name}`;
       imgElement.loading = 'lazy';
       imgElement.style.cursor = 'pointer'; // Apenas a mãozinha (sem lupa)
+
+      // --- Correção de EXIF no Mobile usando Compressor.js ---
+      if (window.innerWidth <= 768 && window.Compressor) {
+        fetch(publicUrl)
+          .then((res) => res.blob())
+          .then((blob) => {
+            new Compressor(blob, {
+              quality: 0.8,
+              checkOrientation: true, // Magia: rotaciona corretamente lendo o EXIF!
+              success(result) {
+                imgElement.src = URL.createObjectURL(result);
+              },
+              error(err) {
+                console.warn('Erro Compressor.js:', err);
+                imgElement.src = publicUrl; // Fallback
+              },
+            });
+          })
+          .catch((err) => {
+            console.warn('Erro Fetch:', err);
+            imgElement.src = publicUrl; // Fallback
+          });
+      } else {
+        imgElement.src = publicUrl; // Desktop e fluxo original
+      }
 
       // --- LÓGICA DE ABRIR O ZOOM ---
       imgElement.onclick = (e) => {
@@ -76,7 +100,8 @@ async function carregarGaleria(ano = '2025') {
         const btnLightbox = document.getElementById('btn-download-lightbox');
 
         if (lightbox && imgExpandida) {
-          imgExpandida.src = publicUrl;
+          // Usa o Blob rotacionado salvo no imgElement, ou o original se o fallback tiver engatilhado
+          imgExpandida.src = imgElement.src || publicUrl;
           lightbox.style.display = 'flex';
 
           // Ensina o botão do Lightbox a baixar ESTA foto

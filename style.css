@@ -917,9 +917,20 @@ footer{
 /* --- RESPONSIVIDADE GERAL (768px e 425px) --- */
 
 @media (max-width: 768px) {
-    /* Ajustes de Layout Global */
-    .containerRoxo, .pilares, .banner, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
-        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+    /* Ajustes de Layout Global - Padronização Ouro (Eixo X) */
+    .containerRoxo, .pilares, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Slider dos Partners (Restaurado para a forma original a pedido) */
+    .banner {
+        max-width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -927,7 +938,6 @@ footer{
     .logoPrincipal  {
       width: 150px;
     }
-
 
     /* Início e Vídeo */
     .inicio { padding-top: 50px; }
@@ -950,10 +960,9 @@ footer{
     .banner-content p { font-size: 16px; top: 45%; max-width: 40%; }
     .partnerP { top: 35% !important; }
 
-
     .dots-container{
         bottom: 10px;
-        gap: 10px;
+        gap: 15px; /* Distância respirável pros pontinhos */
     }
 
     .dot{
@@ -962,9 +971,9 @@ footer{
 
     /* Seção 5 Anos */
     .anos h1 { font-size: 30px; text-align: center; }
-    .aguiaHome { display: none; } /* Remove a águia que vaza a tela */
+    .aguiaHome { display: none; } 
     
-    /* Botões (Um em cima do outro) */
+    /* Botões (Um em cima do outro com gap padrão) */
     .botoes { 
         flex-direction: column; 
         gap: 20px; 
@@ -974,20 +983,36 @@ footer{
 
     /* Formulário */
     input, #conheceu, #objetivo, textarea {
-        width: 100% !important; /* Ocupa a largura total do container */
+        width: 100% !important; 
+        box-sizing: border-box; /* Garante que o padding interno não estoure a tela */
     }
-    #enviar { margin: 30px auto; width: 100%; }
+    #enviar { margin: 20px auto; width: 100%; box-sizing: border-box; }
 
     .form{
       background-image: none;
+      padding: 30px 20px; /* Ritmo no form mobile */
+      border-radius: 20px;
     }
 
-    /* Footer */
-    footer { height: auto; padding: 40px 0; flex-direction: column; align-items: center; text-align: center; }
+    /* Footer - Padding Cimentado nas laterais e gap coeso */
+    footer { 
+        height: auto; 
+        padding: 40px 20px; 
+        width: 100%;
+        box-sizing: border-box;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
     .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
     .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
-    .logosFooter { position: static; margin-top: 30px; justify-content: center; }
-    .xadrez { display: none; } /* O xadrez pode poluir o visual mobile */
+    .logosFooter { position: static; margin-top: 30px; justify-content: center; gap: 15px; }
+    .xadrez { display: none; } 
+
+    /* Quebra de linha do CTA - 'fazermos' desce para a linha de baixo no mobile */
+    .quebra-mobile {
+        display: block;
+    }
 }
 
 /* Ajustes específicos para Celulares Pequenos (425px) */

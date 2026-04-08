@@ -977,7 +977,11 @@ footer{
 
 
   nav {
-        max-width: 95%; /* Dá uma margem de segurança nas laterais */
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1021,18 +1025,87 @@ footer{
     font-size: 14px;
   }
   /* Header e Seção Inicial */
+  .inicio {
+    padding-bottom: 175px; /* Reduzido de 200px para puxar as fotos um pouco mais para perto do título */
+  }
   .container {
-    padding-top: 60px;
+    padding-top: 35px; /* Reduzido de 60px para aproximar o título da Nav */
     text-align: center;
+    position: relative;
+    z-index: 10; /* Garante que 'SOMOS VISIONARIES' ficará sobrepondo tudo */
   }
   .textosInicio h1 { font-size: 32px; }
   .fundoPrincipal { width: 100%; height: auto; object-fit: cover; }
 
-  /* Team e Descrição */
-  .team-container {
-    display: none;
+  /* Team e Descrição Mobile - Restauração Magica */
+
+  .fundoRoxo {
+    background-color: transparent !important;
+    position: relative;
+    z-index: 5; /* Cria um universo empilhado seguro sobre o banner */
   }
-  .member img { width: 100px; } /* Reduz sócios no mobile */
+  
+  /* Esse carinha age como o novo fundo sólido roxo */
+  .fundoRoxo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #421F38; /* O clássico roxo da Vision */
+    border-radius: inherit; /* Pega o arredondamento de 30px automático */
+    z-index: 1; /* Fica na camada 1 */
+  }
+
+  /* Eleva todos os textos, containers, e itens pra cima (camada 2) para ficarem em cima do fundo novo */
+  .fundoRoxo > *:not(.team-container) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .team-container {
+    display: flex;
+    position: absolute;
+    top: -160px; /* As fotos sobem 160px, o banner tem 200px livres, portanto distanciam do título maravilhosamente bem */
+    left: 0;
+    width: 100%;
+    margin: 0;
+    height: 220px; /* Altura visível de todas */
+    z-index: 0 !important; /* Camada 0: escondida atrás do fundo roxo (camada 1) */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0; /* ZERAMOS o GAP para as imagens ficarem 100% coladas transformando numa barra única */
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .member {
+    flex: 1;
+    max-width: 140px;
+    height: 100%;
+  }
+
+  .member img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Posição gravidade original base */
+  }
+
+  /* João (Sócio 1) - Ajuste de enquadramento da Câmera e Arredondamento esquerdo */
+  .member:first-child img {
+    border-radius: 12px 0 0 12px; /* Só arredonda a lateral esquerda externa */
+    object-position: center 40%; /* Puxa o João mais para cima ainda */
+  }
+
+  /* Ale (Sócio 2 - Do Meio) - Fica retangular e colado sem bordas */
+  .member:nth-child(2) img {
+    border-radius: 0;
+  }
+
+  /* Isabella (Sócio 3) - Arredondamento da direita e câmera mantida */
+  .member:nth-child(3) img {
+    border-radius: 0 12px 12px 0; /* Só arredonda a lateral direita externa */
+    object-position: center 40%; /* Levanta a foto da Isabella que arrumamos antes */
+  }
   
   .fundoTexto { width: 100%; position: relative; }
   .tituloAlem {  text-align: center; margin-top: -75px;}
@@ -1185,52 +1258,41 @@ html, body {
 }
 
 .check {
-    display: block; /* Traz o ícone de volta à vida apenas aqui */
-    width: 64px; /* Tamanho minimalista, ideal para não poluir o layout em linha */
+    display: block; 
+    width: 45px; /* Ajuste suave pro 2x2 */
     height: auto;
-    margin: -5px auto 0px auto; /* Centraliza perfeitamente e dá um leve respiro antes do texto */
+    margin: -10px auto 0px auto; 
   }
 
   .containerPilares p{
     margin-top: 40px !important;
   }
 
-  .passo-numero { font-size: 50px; }
+  .passo-numero { font-size: 42px; } 
   
   .fundoRoxo {
-    border-radius: 30px; /* Aproveita mais espaço lateral */
+    border-radius: 30px; 
     width: 100%;
   }
-  .tornarVisionary{
-    font-size: 22px;
+
+  .tornarVisionary {
+    font-size: 20px;
     justify-content: center;
+    text-align: center;
   }
 
  .passos-container {
-    display: flex;
-    flex-direction: row; /* Altera de coluna para linha */
-    flex-wrap: nowrap; /* Força os itens a ficarem na mesma linha */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* O 2x2 que você gostou */
+    gap: 20px; 
     width: 100%;
-    justify-content: space-between; /* Distribui o espaço uniformemente */
-    gap: 10px; /* Reduzimos o gap drásticamente para caber lado a lado */
-    
-    /* Prevenção de quebra de tela com toque de interface nativa (Apple-style) */
-    overflow-x: auto; 
-    -webkit-overflow-scrolling: touch; 
-    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
     max-width: 100vw; 
     box-sizing: border-box; 
-    padding: 0 10px; /* Dá o respiro sem somar na largura total */
-  }
-
-  /* Oculta a barra de rolagem no Webkit (Chrome/Safari) para manter o visual clean */
-  .passos-container::-webkit-scrollbar {
-    display: none;
+    padding: 0 15px; 
+    overflow-x: hidden; /* Zero scroll */
   }
 
   .passo-item {
-    flex: 1; /* Faz os passos dividirem o espaço disponível de forma igual */
-    min-width: 130px; /* Evita que o flexbox esmague o conteúdo além do limite legível */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1238,9 +1300,11 @@ html, body {
   }
 
   .passo-item p {
-    font-size: 16px; /* Uma leve redução (de 16px para 14px) para respiro visual na linha */
-    max-width: 100%; /* Remove a trava fixa de 100px para aproveitar a flexibilidade do container */
-    word-break: break-word; /* Evita que uma palavra longa quebre a harmonia do bloco */
+    font-size: 14px; /* Legível e equilibrado */
+    line-height: 1.4;
+    margin-top: 5px;
+    max-width: 100%; 
+    word-break: break-word; 
   }
 
   .passo-item:first-child::before{
