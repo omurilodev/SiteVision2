@@ -1010,7 +1010,7 @@ nav{
     footer { 
         height: auto; 
         padding: 40px 20px; 
-        padding-right: calc(50% - 70px); /* Protege a área de texto */
+        padding-right: calc(50% - 55px); /* Protege a área de texto */
         width: 100%;
         box-sizing: border-box;
         display: flex;
@@ -1023,7 +1023,7 @@ nav{
         background-image: url('./assets/xadrezFooter.webp');
         background-repeat: repeat-y; 
         background-position: right top; 
-        background-size: calc(50% - 70px) 25%; /* Pega o meio menos 70px, repetindo 4x na altura */
+        background-size: calc(50% - 55px) 33.333%; /* Pega o meio menos 55px, repetindo exatas 3x na altura (100 / 3) */
     }
     .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; align-items: flex-start; }
     .NavFooter, .contatoFooter { 
