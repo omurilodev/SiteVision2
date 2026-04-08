@@ -150,7 +150,8 @@ nav img{
   color: white !important;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
   display: block;
   animation: fadeIn 0.3s ease;
 }
@@ -162,9 +163,17 @@ nav img{
 
 /* Responsividade Dropdown */
 @media (max-width: 768px) {
+  .dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dropdown.active .dropdown-content {
+    display: block !important;
+    animation: none !important;
+  }
   .dropdown-content {
     position: static;
-    display: block !important; /* No mobile ele fica sempre visível no menu hambúrguer */
+    display: none !important; /* Oculto por padrão no mobile para abrir no clique */
     background-color: transparent;
     box-shadow: none;
     border: none;
@@ -295,7 +304,10 @@ nav img{
 
 @media (max-width: 500px) {
   .imagensGaleria {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .galeria-item {
+    height: 180px;
   }
 }
 
