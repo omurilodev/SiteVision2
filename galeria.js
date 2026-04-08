@@ -50,7 +50,7 @@ async function carregarGaleria(ano = '2025') {
 
     // Se não tiver fotos ainda, mostra um aviso amigável
     if (fotosValidas.length === 0) {
-      containerGaleria.innerHTML = `<p style="text-align:center; width:100%; color:#957755; padding: 40px 0;">Em breve, fotos do Vision Day ${ano}!</p>`;
+      containerGaleria.innerHTML = `<p style="text-align:center; width:100%; color:#957755; padding: 40px 0;">Coming soon, on Monday 13th! 🦅</p>`;
       return;
     }
 
