@@ -925,7 +925,17 @@ footer{
         z-index: 1100;
     }
     /* Ajustes de Layout Global - Padronização Ouro (Eixo X) */
-    .containerRoxo, .pilares, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
+    .containerRoxo {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .pilares, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
         width: 100%;
         max-width: 100vw;
         padding-left: 20px;
@@ -949,7 +959,23 @@ footer{
     /* Início e Vídeo */
     .inicio { padding-top: 140px; }
     .V { height: 80%; }
-    .video-wrapper { margin-top: -30px; }
+    .video-wrapper { 
+        margin-top: -30px; 
+        width: 100%;
+        margin-left: 0;
+        max-width: none;
+    }
+    .video-wrapper video {
+        width: 100%;
+        height: 56vw; /* Proporção 16:9 (9/16 = 0.5625) */
+        object-fit: cover;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .conteudo-texto {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .conteudo-texto h1 { 
         font-size: 48px; 
         margin-top: 50px; 
@@ -1034,7 +1060,7 @@ footer{
   .V{
     width: 100%;
     margin-top: 0px;
-    height: 41%;
+    height: 44.5%;
   }
 
 
