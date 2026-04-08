@@ -1010,32 +1010,32 @@ nav{
     footer { 
         height: auto; 
         padding: 40px 20px; 
+        padding-right: calc(50% - 70px); /* Protege a área de texto */
         width: 100%;
         box-sizing: border-box;
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
-    }
-    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; }
-    .NavFooter, .contatoFooter { margin-left: 0; margin-top: 0; }
-    .logosFooter { position: static; margin-top: 30px; justify-content: center; gap: 15px; }
-    .xadrez { 
-        display: block;
-        position: relative;
-        width: calc(100% + 40px); /* Expande para ignorar o padding lateral do footer */
-        margin-left: -20px; 
-        height: 220px; /* Altura aumentada conforme solicitado */
-        object-fit: cover;
-        margin-top: 40px;
-        margin-bottom: -40px; /* Encosta no final absoluto */
-        order: 10; /* Garante que fique depois de todo o conteúdo (links e logos) */
-    } 
-
-    footer {
         display: flex;
-        flex-direction: column;
-        padding: 40px 20px;
+        flex-direction: column; 
+        align-items: flex-start; 
+        text-align: left; 
+        position: relative;
         overflow: hidden;
+        background-color: #421F38;
+        background-image: url('./assets/xadrezFooter.webp');
+        background-repeat: repeat-y; 
+        background-position: right top; 
+        background-size: calc(50% - 70px) 25%; /* Pega o meio menos 70px, repetindo 4x na altura */
+    }
+    .FooterNavegacao { flex-direction: column; margin-top: 0; gap: 30px; align-items: flex-start; }
+    .NavFooter, .contatoFooter { 
+        margin-left: 0; 
+        margin-top: 0; 
+        align-items: flex-start; 
+        text-align: left; 
+        word-break: break-word; /* Evita que o email comprido estoure o layout da esquerda */
+    }
+    .logosFooter { position: static; margin-top: 30px; justify-content: flex-start; gap: 15px; }
+    .xadrez { 
+        display: none !important; /* Escondemos a img HTML que é ruim de escalar e duplicar em CSS puro =] */
     }
 
     .form{
