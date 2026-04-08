@@ -596,6 +596,13 @@ footer{
 /* --- RESPONSIVIDADE CONTATO (768px e 425px) --- */
 
 @media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1100;
+    }
 
 nav {
         width: 100%;
@@ -648,7 +655,7 @@ nav {
 
   .container {
     grid-template-columns: 1fr; /* Transforma as duas colunas em uma */
-    padding: 40px 20px;
+    padding: 110px 20px 40px 20px;
     box-sizing: border-box;
     width: 100%;
     margin: 0;

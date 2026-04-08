@@ -857,6 +857,13 @@ footer{
 
 /* AJUSTES PARA TABLET (768px) */
 @media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1100;
+    }
 
 nav{
           max-width: 95%; /* Dá uma margem de segurança nas laterais */
@@ -914,6 +921,7 @@ nav{
 
     .inicio {
         height: auto;
+        padding-top: 100px;
         padding-bottom: 40px;
     }
 
@@ -1060,7 +1068,7 @@ nav{
 
     .inicio {
     width: 95%;
-    height: 250px;      /* Altura reduzida para não "engolir" a tela do celular */
+    height: 350px;      /* Altura ajustada conforme solicitado pelo usuário */
     margin: 20px auto;     /* Margem menor para telas pequenas */
     border-radius: 12px; /* Arredondado mais sutil para telas menores */
     box-shadow: none;
@@ -1076,6 +1084,8 @@ nav{
 
   .inicio video {
     box-shadow: none;
+    height: 100%;
+    object-fit: cover;
   }
 
     .conhecaPlanos {

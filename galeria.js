@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Pega o parâmetro 'ano' da URL (ex: ?ano=2026)
   const urlParams = new URLSearchParams(window.location.search);
   const anoParam = urlParams.get('ano');
-  const anoInicial = (anoParam === '2025' || anoParam === '2026') ? anoParam : '2025';
+  const anoInicial =
+    anoParam === '2025' || anoParam === '2026' ? anoParam : '2025';
 
   // 1. Carrega a aba inicial (direto da URL ou padrão 2025)
   carregarGaleria(anoInicial);
@@ -150,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const containerGaleria = document.querySelector('.imagensGaleria');
 
   // Garante que o botão correto comece "ativo" (especialmente se veio pela URL)
-  botoesAba.forEach(b => {
+  botoesAba.forEach((b) => {
     if (b.getAttribute('data-ano') === anoInicial) {
       b.classList.add('active');
     } else {

@@ -917,6 +917,13 @@ footer{
 /* --- RESPONSIVIDADE GERAL (768px e 425px) --- */
 
 @media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1100;
+    }
     /* Ajustes de Layout Global - Padronização Ouro (Eixo X) */
     .containerRoxo, .pilares, .anosRoxo, .anos, .botoes, .depoimentos, .form, form, nav {
         width: 100%;
