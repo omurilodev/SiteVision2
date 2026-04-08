@@ -590,8 +590,23 @@ footer{
   height: 60px;
 }
 
+.coming-soon-msg {
+  text-align: center;
+  width: 100%;
+  color: #957755;
+  padding: 80px 20px;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
 
 @media (max-width: 768px) {
+    .coming-soon-msg {
+        font-size: 20px;
+        padding: 100px 20px;
+    }
+
     /* Footer - Padding Cimentado nas laterais e gap coeso */
     footer { 
         height: auto; 
