@@ -947,7 +947,8 @@ footer{
     }
 
     /* Início e Vídeo */
-    .inicio { padding-top: 50px; }
+    .inicio { padding-top: 140px; }
+    .V { height: 80%; }
     .video-wrapper { margin-top: -30px; }
     .conteudo-texto h1 { 
         font-size: 48px; 
@@ -1033,7 +1034,7 @@ footer{
   .V{
     width: 100%;
     margin-top: 0px;
-    height: 36.3%;
+    height: 41%;
   }
 
 
