@@ -213,6 +213,10 @@ nav img{
   margin: 0 auto;
   padding: 20px; 
   margin-top: 50px;
+  min-height: 60vh; /* Garante espaço para centralizar a mensagem na página */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* =========================================
@@ -598,13 +602,20 @@ footer{
   font-size: 20px;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
+  grid-column: 1 / -1; /* Força ocupar todas as colunas do grid para centralizar real */
 }
 
 
 @media (max-width: 768px) {
     .coming-soon-msg {
         font-size: 20px;
-        padding: 100px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap; /* Mantém em uma única linha conforme pedido */
+        text-align: center;
+        padding: 50px 10px; /* Reduzi um pouco o padding vertical para compensar a largura horizontal */
     }
 
     /* Footer - Padding Cimentado nas laterais e gap coeso */
