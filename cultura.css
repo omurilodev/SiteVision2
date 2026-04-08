@@ -1123,7 +1123,7 @@ footer{
   .containerPilares {
     grid-template-columns: 1fr; /* Uma coluna só */
     margin-top: 50px;
-    gap: 60px;
+    gap: 30px;
     padding: 0 20px;
   }
 
