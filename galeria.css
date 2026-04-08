@@ -307,7 +307,7 @@ nav img{
     grid-template-columns: repeat(2, 1fr);
   }
   .galeria-item {
-    height: 180px;
+    height: 250px; /* Aumentado para evitar que fiquem deitadas (landscape) */
   }
 }
 
