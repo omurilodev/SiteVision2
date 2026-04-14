@@ -31,25 +31,25 @@ if (formContato) {
   const btnFecharToast = document.getElementById('fechar-toast');
   let timerContato;
 
-  function mostrarToastCurriculo() {
-  // Puxa o elemento na hora H para garantir que ele existe
-  const popup = document.getElementById('toast-curriculo'); // ou 'toast-sucesso', dependendo do ID que está no seu HTML
-  
-  if (popup) {
-    // 1. Força o popup a entrar na tela
-    popup.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    popup.style.transform = 'translateX(0)';
-    console.log("Popup forçado a entrar!");
+  // CORREÇÃO: Função renomeada e ID apontando para o popup certo (toast-sucesso)
+  function mostrarToastContato() {
+    const popup = document.getElementById('toast-sucesso'); 
+    
+    if (popup) {
+      // 1. Força o popup a entrar na tela
+      popup.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      popup.style.transform = 'translateX(0)';
+      console.log("Popup de Contato forçado a entrar!");
 
-    // 2. Força o popup a sair após 5 segundos
-    setTimeout(() => { 
-      popup.style.transform = 'translateX(150%)'; 
-      console.log("Popup forçado a sair!");
-    }, 5000);
-  } else {
-    console.error("ERRO: O HTML do popup não foi encontrado. Verifique o ID.");
+      // 2. Força o popup a sair após 5 segundos
+      setTimeout(() => { 
+        popup.style.transform = 'translateX(150%)'; 
+        console.log("Popup de Contato forçado a sair!");
+      }, 5000);
+    } else {
+      console.error("ERRO: O HTML do popup de contato (toast-sucesso) não foi encontrado.");
+    }
   }
-}
 
   formContato.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ if (formContato) {
 
     const formData = new FormData(formContato);
     const dados = Object.fromEntries(formData);
-    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision'; // URL Antiga
+    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision';
 
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -76,8 +76,8 @@ if (formContato) {
         alert('Ops! Houve um erro no servidor.');
       }
     } catch (error) {
-      console.error('Erro:', error);
-      alert('Erro de conexão. Verifique sua internet.');
+      console.error('Erro na requisição de Contato:', error);
+      alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
     } finally {
       btnEnviarContato.innerText = textoOriginal;
       btnEnviarContato.disabled = false;
@@ -93,29 +93,28 @@ const formTrabalheConosco = document.getElementById('form-trabalhe-conosco');
 if (formTrabalheConosco) {
   // Pega o botão submit específico deste form
   const btnEnviarCurriculo = formTrabalheConosco.querySelector('button[type="submit"]');
-  // ATENÇÃO: Use um ID diferente no seu HTML para o Toast do currículo!
   const toastCurriculo = document.getElementById('toast-curriculo'); 
   let timerCurriculo;
 
- function mostrarToastCurriculo() {
-  // Puxa o elemento na hora H para garantir que ele existe
-  const popup = document.getElementById('toast-curriculo'); // ou 'toast-sucesso', dependendo do ID que está no seu HTML
-  
-  if (popup) {
-    // 1. Força o popup a entrar na tela
-    popup.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    popup.style.transform = 'translateX(0)';
-    console.log("Popup forçado a entrar!");
+  function mostrarToastCurriculo() {
+    // Puxa o elemento na hora H para garantir que ele existe
+    const popup = document.getElementById('toast-curriculo'); 
+    
+    if (popup) {
+      // 1. Força o popup a entrar na tela
+      popup.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      popup.style.transform = 'translateX(0)';
+      console.log("Popup de Currículo forçado a entrar!");
 
-    // 2. Força o popup a sair após 5 segundos
-    setTimeout(() => { 
-      popup.style.transform = 'translateX(150%)'; 
-      console.log("Popup forçado a sair!");
-    }, 5000);
-  } else {
-    console.error("ERRO: O HTML do popup não foi encontrado. Verifique o ID.");
+      // 2. Força o popup a sair após 5 segundos
+      setTimeout(() => { 
+        popup.style.transform = 'translateX(150%)'; 
+        console.log("Popup de Currículo forçado a sair!");
+      }, 5000);
+    } else {
+      console.error("ERRO: O HTML do popup de currículo (toast-curriculo) não foi encontrado.");
+    }
   }
-}
 
   formTrabalheConosco.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -125,7 +124,7 @@ if (formTrabalheConosco) {
     btnEnviarCurriculo.disabled = true;
 
     const formData = new FormData(formTrabalheConosco);
-    const WEBHOOK_URL = 'https://neown8n.neowchat.com.br/webhook-test/recebe-curriculo';
+    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/recebe-curriculo';
 
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -140,8 +139,8 @@ if (formTrabalheConosco) {
         alert('Ops! Houve um erro no servidor.');
       }
     } catch (error) {
-      console.error('Erro:', error);
-      alert('Erro de conexão. Verifique sua internet.');
+      console.error('Erro na requisição de Currículo:', error);
+      alert('Erro ao enviar o arquivo. Verifique sua conexão e tente novamente.');
     } finally {
       btnEnviarCurriculo.innerText = textoOriginal;
       btnEnviarCurriculo.disabled = false;

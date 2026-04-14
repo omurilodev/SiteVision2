@@ -970,6 +970,40 @@ footer{
 
 
 
+/* --- AJUSTE PARA TELAS ACIMA DE 1440px (zoom 75%) --- */
+
+@media (min-width: 1441px) {
+  /* Ancora o container de fotos ao fundoRoxo para manter o mesmo
+     posicionamento visual do 1440px: 690px da borda esquerda do fundoRoxo
+     (equivalente a left:780px viewport - 90px margem do fundoRoxo em 1440px) */
+  .fundoRoxo {
+    position: relative;
+  }
+
+  .team-container {
+    left: 690px;
+    top: -100px;
+  }
+
+  /* Centraliza o título "Como se tornar um Visionary" */
+  .blocoVisioanry {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+  }
+
+  /* Centraliza o botão "Começar agora" */
+  .botaoVisionary {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+  }
+}
+
 /* --- RESPONSIVIDADE PÁGINA CULTURA --- */
 
 @media (max-width: 768px) {
