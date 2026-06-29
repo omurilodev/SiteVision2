@@ -65,6 +65,7 @@ async function carregarGaleria(ano = '2025') {
       imgElement.alt = `Vision Day ${ano} - ${foto.name}`;
       imgElement.loading = 'lazy';
       imgElement.style.cursor = 'pointer'; // Apenas a mãozinha (sem lupa)
+      imgElement.onload = () => imgElement.classList.add('img-loaded'); // Fade-in sutil ao carregar
 
       // --- Correção de EXIF no Mobile usando Compressor.js ---
       if (window.innerWidth <= 768 && window.Compressor) {

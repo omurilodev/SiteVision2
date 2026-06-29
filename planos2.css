@@ -111,18 +111,14 @@ body {
   /* Remova o max-width: 100vw se puder, ele causa bugs com scroll */
   width: 100%;
   overflow-x: hidden;
+  zoom: 0.9;
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
-}
 
-body{
-  background-color: #E1DAD2;
-  zoom: 0.9;
 }
 
 a{
@@ -315,14 +311,15 @@ nav img{
 /* VIDEO LANDING*/
 
 .inicio {
-  width: 1160px;       /* Largura total */
+  width: calc(100% - 40px); /* Fluido, com a mesma folga de 20px usada no header/hero do Turma */
+  max-width: 1160px;        /* Mesma largura de conteúdo do resto do site */
   margin: 0 auto;
   height: 500px;     /* Defina aqui a altura desejada para o corte */
   overflow: hidden;  /* Esconde o que sobrar do vídeo */
   position: relative;
-  margin-top: 60px;
-  border-radius: 15px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 
+  margin-top: 50px;  /* Mais respiro em relação ao header fixo */
+  border-radius: 20px; /* Mesmo raio do .bannerExecutive (Turma) */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25),
               0 15px 30px rgba(0, 0, 0, 0.15);
 }
 .inicio::after {
@@ -346,7 +343,7 @@ nav img{
   object-fit: cover; /* O segredo para não distorcer o vídeo */
   object-position: center; /* Centraliza o vídeo no corte */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 
@@ -365,10 +362,10 @@ nav img{
   max-width: 1160px;
   margin: 0 auto;
     font-family: 'Playfair Display', serif;
-  font-size: 30px;
+  font-size: 20px;
   color: #0F1F2E;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.3;
   text-align: center;
 }
 
@@ -376,10 +373,10 @@ nav img{
   font-family: 'Playfair Display', serif;
   max-width: 1160px;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 50px;
   color: #957755;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 400;
   text-align: center;
 }
@@ -390,7 +387,7 @@ nav img{
 }
 
 /* =========================================
- * CHECKLIST (mesmo padrão da LandingPageTurma)
+ * CHECKLIST (idêntico ao componente da LandingPageTurma)
  * ========================================= */
 
 .checklistExecutive {
@@ -427,7 +424,14 @@ nav img{
   border-radius: 10px;
   border: 1px solid rgba(149, 119, 85, 0.35);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.checklistExecutive li.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .checklistExecutive li:hover {
@@ -442,17 +446,17 @@ nav img{
   font-style: italic;
 }
 
-.checkEmoji {
-  font-size: 20px;
-  line-height: 1;
+.checklistColunas li:nth-child(1), .checklistColunas li:nth-child(5) { transition-delay: 0s; }
+.checklistColunas li:nth-child(2), .checklistColunas li:nth-child(6) { transition-delay: 0.08s; }
+.checklistColunas li:nth-child(3), .checklistColunas li:nth-child(7) { transition-delay: 0.16s; }
+.checklistColunas li:nth-child(4), .checklistColunas li:nth-child(8) { transition-delay: 0.24s; }
+.checklistFinal li { transition-delay: 0.32s; }
+
+.checklistExecutive img {
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
-
-.checklistColunas .reveal:nth-child(1), .checklistColunas .reveal:nth-child(5) { transition-delay: 0s; }
-.checklistColunas .reveal:nth-child(2), .checklistColunas .reveal:nth-child(6) { transition-delay: 0.08s; }
-.checklistColunas .reveal:nth-child(3), .checklistColunas .reveal:nth-child(7) { transition-delay: 0.16s; }
-.checklistColunas .reveal:nth-child(4), .checklistColunas .reveal:nth-child(8) { transition-delay: 0.24s; }
-.checklistFinal .reveal { transition-delay: 0.32s; }
 
 
 /* TEXTO INICIAL DO BANNER */
@@ -499,12 +503,11 @@ nav img{
 
 .conhecaPlanos{
   max-width: 1160px;
-  margin: -50px auto;
-  justify-self: center;
-  align-self: center;
-  font-family: 'PlayFair Display';
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
   color: #322D31;
-  font-size: 38px;
+  font-size: 30px;
 }
 
 .conhecaPlanos span{
@@ -519,7 +522,7 @@ nav img{
   display: flex;
   max-width: 1160px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 90px;
   gap: 100px;
 }
 
@@ -539,7 +542,7 @@ nav img{
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  border-radius: 4px;
+  border-radius: 12px;
   width: 270px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
@@ -569,14 +572,14 @@ nav img{
 .descricaoFlight1 h1, .descricaoIntensive1 h1,
  .descricaoImmersive1 h1{
   margin-top: 80px;
-  font-size: 32px;
+  font-size: 24px;
   color: #E1DAD2;
   font-weight: 600;
  }
 
  .descricaoFlight1 h2, .descricaoIntensive1 h2,
  .descricaoImmersive1 h2{
-  font-size: 22px;
+  font-size: 15px;
   color: #E1DAD2;
   font-weight: 200;
   font-family: 'Inter';
@@ -605,10 +608,11 @@ nav img{
 
 
 .roxoTexto{
-  width: 1260px;
+  width: 100%;
+  max-width: 1160px;
   margin: 0 auto;
   margin-top: 50px;
-    color: #957755;
+  color: #957755;
 
   padding: 50px 20px;
   font-family: "Playfair Display", serif;
@@ -639,15 +643,13 @@ nav img{
     box-shadow: -1px 13px 12.7px 9px rgba(0, 0, 0, 0.14);
     color: white;
     font-family: 'Playfair Display', sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 500;
     text-decoration: none;
     text-align: center;
     border: none;
     cursor: pointer;
-    margin-left: 580px;
     border-radius: 15px;
-    margin-top: 25px;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
@@ -661,13 +663,20 @@ nav img{
   transform: translateY(-1px);
 }
 
+/* Centraliza o CTA de forma responsiva, sem hacks de margin-left fixo (mesmo padrão do Turma) */
+.ctaCentro{
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
 /* DEPOIMENTOS */
 
 
 .depoimentos{
   max-width: 1160px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 90px;
 }
 .slider-container {
   max-width: 1160px;
@@ -678,12 +687,9 @@ nav img{
 
 
 .depoimentos h1{
-  font-weight: 300;
-  font-family: 'PlayFair Display';
+  font-family: 'Playfair Display', serif;
   color: #421F38;
   font-weight: 700;
-
-
 }
 
 .italico{
@@ -718,11 +724,11 @@ form{
 
 
 .form{
-  margin-top: 80px;
+  margin-top: 90px;
   overflow: hidden;
   background-image: url(./assets/fundoFormulario.webp);
   background-size: 100%;
-  
+
 }
 
 
@@ -1057,16 +1063,10 @@ nav{
     }
 
     .roxoTexto {
-        width: 90%; /* Deixa de ser 1260px fixo */
-        margin-top: 100px;
+        width: 90%;
+        margin-top: 50px;
     }
 
-    .botaoVisionary {
-        margin-left: 0;
-        display: flex;
-        width: fit-content;
-        margin: 40px auto; /* Centraliza o botão */
-    }
     /* Formulário */
     input, #conheceu, #objetivo, textarea {
         width: 100% !important; /* Ocupa a largura total do container */
@@ -1127,7 +1127,7 @@ nav{
 /* AJUSTES PARA MOBILE (425px) */
 @media (max-width: 425px) {
     .tituloInicialBullet, .textoFinalBullets {
-        font-size: 24px; /* Diminui o texto para não ocupar a tela toda */
+        font-size: 18px; /* Diminui o texto para não ocupar a tela toda */
     }
 
     .textoInicio h2 {
@@ -1170,7 +1170,7 @@ nav{
   }
 
     .conhecaPlanos {
-        font-size: 28px;
+        font-size: 22px;
         text-align: center;
         margin: 20px auto;
     }
@@ -1215,7 +1215,7 @@ nav{
 
 
 .elfsight-app-ef093914-1b10-4236-98c0-f99dd562fec1 {
-  margin-top: 100px;
+  margin-top: 90px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;

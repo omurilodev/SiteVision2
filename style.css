@@ -139,6 +139,11 @@ ul li{
 
 header{
   background-color: #421F38;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
 }
 
 nav{
@@ -147,7 +152,13 @@ nav{
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 18px 10px;
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-top: 96px;
+  }
 }
 
 nav img{
@@ -161,6 +172,16 @@ nav img{
   font-family: 'Inter';
   gap: 20px;
   color: white;
+}
+
+.navegacao > a,
+.navegacao > .dropdown > a {
+  transition: color 0.25s ease;
+}
+
+.navegacao > a:hover,
+.navegacao > .dropdown > a:hover {
+  color: #957755;
 }
 
 /* DROPDOWN GALERIA */
@@ -180,10 +201,9 @@ nav img{
   display: none;
   position: absolute;
   background-color: #421F38; /* Fundo roxo/vinho do header */
-  min-width: 180px;
+  min-width: 280px;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
   z-index: 1001;
-  border: 1px solid #957755; /* Detalhe dourado */
   border-radius: 8px;
   top: 100%;
   left: 50%;
@@ -232,6 +252,42 @@ nav img{
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+/* =========================================
+ * ANIMAÇÕES DE ENTRADA (FADE-IN SUTIL AO ROLAR)
+ * ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.pilares .pilar:nth-child(1) { transition-delay: 0s; }
+.pilares .pilar:nth-child(2) { transition-delay: 0.06s; }
+.pilares .pilar:nth-child(3) { transition-delay: 0.12s; }
+.pilares .pilar:nth-child(4) { transition-delay: 0.18s; }
+.pilares .pilar:nth-child(5) { transition-delay: 0.24s; }
+.pilares .pilar:nth-child(6) { transition-delay: 0.3s; }
+.pilares .pilar:nth-child(7) { transition-delay: 0.36s; }
+.pilares .pilar:nth-child(8) { transition-delay: 0.42s; }
+.pilares .pilar:nth-child(9) { transition-delay: 0.48s; }
+
+.objetivosAnos .objetivo:nth-child(1) { transition-delay: 0s; }
+.objetivosAnos .objetivo:nth-child(2) { transition-delay: 0.1s; }
+.objetivosAnos .objetivo:nth-child(3) { transition-delay: 0.2s; }
+
 /* Responsividade Dropdown */
 @media (max-width: 768px) {
   .dropdown {
@@ -251,6 +307,7 @@ nav img{
     padding-left: 15px;
     transform: none;
     margin-top: 0;
+    min-width: auto;
   }
   
   .dropdown-content::before {
@@ -625,6 +682,13 @@ font-family: "Playfair Display", serif;
   border-radius: 15px;
   font-family: 'PlayFair Display';
   box-shadow: 4px 2px 4px 7px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.botao:hover{
+  transform: translateY(-4px);
+  background-color: #16314a;
+  box-shadow: 4px 10px 14px 7px rgba(0, 0, 0, 0.18);
 }
 
 .botao img{
@@ -765,6 +829,17 @@ input{
   z-index: 1000;
   position: relative;
   margin-bottom: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+#enviar:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#enviar:active {
+  transform: translateY(0);
 }
 
 
@@ -1213,8 +1288,18 @@ footer{
   font-size: 1.3rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   border-radius: 10px;
+}
+
+.btn-visionary:hover {
+  transform: translateY(-3px);
+  background-color: #1c3346;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn-visionary:active {
+  transform: translateY(-1px);
 }
 
 

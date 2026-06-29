@@ -60,7 +60,7 @@ if (formContato) {
 
     const formData = new FormData(formContato);
     const dados = Object.fromEntries(formData);
-    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision';
+    const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/contato-vision';
 
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -124,7 +124,7 @@ if (formTrabalheConosco) {
     btnEnviarCurriculo.disabled = true;
 
     const formData = new FormData(formTrabalheConosco);
-    const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/recebe-curriculo';
+    const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/recebe-curriculo';
 
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -146,4 +146,22 @@ if (formTrabalheConosco) {
       btnEnviarCurriculo.disabled = false;
     }
   });
+}
+
+/** =========================================
+ * ANIMAÇÕES DE ENTRADA (FADE-IN SUTIL AO ROLAR)
+ * ========================================= */
+const revealEls = document.querySelectorAll('.reveal');
+
+if (revealEls.length) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
 }

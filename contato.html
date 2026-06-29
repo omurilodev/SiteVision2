@@ -118,9 +118,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="./cultura.html">
           <li>NOSSA CULTURA</li>
         </a>
-        <a href="./planos.html">
-          <li>PLANOS DE AULAS</li>
-        </a>
+        <li class="dropdown" onclick="this.classList.toggle('active')">
+          <a href="javascript:void(0)">PROGRAMAS DE AULAS</a>
+          <div class="dropdown-content">
+            <a href="./planos.html">Vision Solo | Individuais</a>
+            <a href="./planos.html">Vision Sync | Duplas</a>
+            <a href="./LandingPageTurma.html">Vision Executive | Turmas</a>
+          </div>
+        </li>
         <a href="./contato.html">
           <li>CONTATO</li>
         </a>
@@ -137,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <main class="container">
     <section class="forms-column">
-      <div class="form-block roxo">
+      <div class="form-block roxo reveal">
         <h2 class="contatoTime">Fale com o nosso <span>time</span></h2>
 
         <form action="" id="form-contato">
@@ -170,7 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </div>
 
-      <div class="form-block">
+      <div class="form-block reveal">
         <h2 class="contatoCurriculo">Faça parte do nosso <br><span>instituto</span></h2>
         <form id="form-trabalhe-conosco">
           <label for="name">Nome:</label>
@@ -212,22 +217,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section class="photo-grid">
-      <div class="img-pair">
+      <div class="img-pair reveal">
         <img src="./assets/fotoContato1.webp" alt="">
         <img src="./assets/fotContato2.webp" alt="">
       </div>
-      <div class="img-large">
+      <div class="img-large reveal">
         <img src="assets/fotoContatoL3.webp" alt="">
       </div>
-      <div class="img-pair">
+      <div class="img-pair reveal">
         <img src="./assets/fotoContato4.webp" alt="">
         <img src="./assets/fotoContato5.webp" alt="">
       </div>
-      <div class="img-pair">
+      <div class="img-pair reveal">
         <img src="./assets/fotoContato7.webp" alt="">
         <img src="./assets/fotoContato8.webp" alt="">
       </div>
-      <div class="img-large">
+      <div class="img-large reveal">
         <img src="assets/fotoContato9.webp" alt="">
       </div>
     </section>
@@ -239,10 +244,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul class="NavFooter">
         <li class="tituloNav">Navegação</li>
         <a href="./cultura.html">
-          <li class="topic">Cultura</li>
+          <li class="topic">Nossa Cultura</li>
         </a>
         <a href="./planos.html">
-          <li class="topic">Nossos planos</li>
+          <li class="topic">Programas de Aulas</li>
         </a>
         <a href="./contato.html">
           <li class="topic">Contato</li>

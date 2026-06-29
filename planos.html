@@ -119,9 +119,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="./cultura.html">
           <li>NOSSA CULTURA</li>
         </a>
-        <a href="./planos.html">
-          <li>PLANOS DE AULAS</li>
-        </a>
+        <li class="dropdown" onclick="this.classList.toggle('active')">
+          <a href="javascript:void(0)">PROGRAMAS DE AULAS</a>
+          <div class="dropdown-content">
+            <a href="./planos.html">Vision Solo | Individuais</a>
+            <a href="./planos.html">Vision Sync | Duplas</a>
+            <a href="./LandingPageTurma.html">Vision Executive | Turmas</a>
+          </div>
+        </li>
         <a href="./contato.html">
           <li>CONTATO</li>
         </a>
@@ -140,85 +145,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <video class="videoLanding" src="./assets/Video (Landing Page)..mp4" autoplay loop></video>
   </div>
   <div class="backgroundSino">
-    <h1 class="tituloInicialBullet">Os nossos Eagles estão prontos para te ensinar o idioma que pode te guiar em direção aos seus sonhos e objetivos. Aprenda inglês com o nosso instituto a partir de:</h1>
+    <h1 class="tituloInicialBullet reveal">Os nossos Eagles estão prontos para te ensinar o idioma que pode te guiar em direção aos seus sonhos e objetivos. Aprenda inglês com o nosso instituto a partir de:</h1>
 
-    <section class="sessaodeBeneficios">
-      <div class="esquerda">
-        <div class="e1">
-          <h1>Aulas de Inglês 100% online</h1>
-          <h2>para você aprender de qualquer lugar do mundo.</h2>
-        </div>
-        <div class="e2">
-          <h1>Aulas de inglês personalizadas</h1>
-          <h2>de acordo com seus objetivos e interesses pessoais.</h2>
-        </div>
-        <div class="e3">
-          <h1>Acompanhamento contínuo</h1>
-          <h2>de um professor de inglês dedicado.</h2>
-        </div>
-        <div class="e4">
-          <h1>Suporte individual contínuo</h1>
-          <h2>durante toda a sua jornada de estudos.</h2>
-        </div>
-      </div>
-      <div class="direita">
-        <div class="d1">
-          <h1>Feedbacks ao final de cada aula</h1>
-          <h2>com orientações claras sobre a sua evolução.</h2>
-        </div>
-        <div class="d2">
-          <h1>Planners de estudos extras</h1>
-          <h2>com exercícios para acelerar o seu aprendizado.</h2>
-        </div>
-        <div class="d3">
-          <h1>Relatórios de progresso de aprendizagem</h1>
-          <h2>para você também acompanhar a sua evolução.</h2>
-        </div>
-        <div class="d4">
-          <h1>Materiais reconhecidos internacionalmente</h1>
-          <h2>validados pela Universidade de Cambridge.</h2>
-        </div>
-      </div>
+    <section class="checklistExecutive">
+      <ul class="checklistColunas">
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Aulas de Inglês 100% online</strong> para você aprender de qualquer lugar do mundo.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Aulas de inglês personalizadas</strong> de acordo com seus objetivos e interesses pessoais.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Acompanhamento contínuo</strong> de um professor de inglês dedicado.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Suporte individual contínuo</strong> durante toda a sua jornada de estudos.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Feedbacks ao final de cada aula</strong> com orientações claras sobre a sua evolução.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Planners de estudos extras</strong> com exercícios para acelerar o seu aprendizado.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Relatórios de progresso de aprendizagem</strong> para você também acompanhar a sua evolução.</span></li>
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Materiais reconhecidos internacionalmente</strong> validados pela Universidade de Cambridge.</span></li>
+      </ul>
+      <ul class="checklistFinal">
+        <li class="reveal"><span class="checkEmoji">✅</span><span><strong>Ferramenta de memorização</strong> para fixação de vocabulário das aulas.</span></li>
+      </ul>
     </section>
-    <div class="d5">
-      <h1>Ferramenta de memorização</h1>
-      <h2>para fixação de vocabulário das aulas.</h2>
-    </div>
-    <h1 class="textoFinalBullets">Não estamos formando apenas falantes de mais um idioma, estamos formando visionários conscientes de onde querem e podem chegar.
+    <h1 class="textoFinalBullets reveal">Não estamos formando apenas falantes de mais um idioma, estamos formando visionários conscientes de onde querem e podem chegar.
       <span class="alemDoIngles">Isso é muito além do inglês!</span>
     </h1>
   </div>
 
-  <h1 class="conhecaPlanos">Conheça os nossos <span>planos:</span></h1>
+  <h1 class="conhecaPlanos reveal">Conheça os nossos <span>planos:</span></h1>
   <section class="planos1">
-    <div class="planoFlight1">
+    <div class="planoFlight1 reveal">
       <img src="./assets/flight1.webp" alt="">
       <div class="descricaoFlight1">
         <h1>Plano Flight</h1>
         <h2 class="h2">01 aula de 01h30 por semana</h2>
         <h2>(06 horas em aulas por mês).</h2>
-        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20flight">AULAS INDIVIDUAIS</a>
-        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20flight">AULAS EM DUPLA</a>
+        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20flight">Vision Solo | Individuais</a>
+        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20flight">Vision Sync | Duplas</a>
       </div>
     </div>
-    <div class="planoIntensive1">
+    <div class="planoIntensive1 reveal">
       <img src="./assets/intensive1.webp" alt="">
       <div class="descricaoIntensive1">
         <h1>Plano Intensive</h1>
         <h2 class="h2">02 aulas de 01h por semana</h2>
         <h2>(08 horas em aulas por mês).</h2>
-        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20intensive">AULAS INDIVIDUAIS</a>
-        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20intensive">AULAS EM DUPLA</a>
+        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20intensive">Vision Solo | Individuais</a>
+        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20intensive">Vision Sync | Duplas</a>
       </div>
     </div>
-    <div class="Immersive1">
+    <div class="Immersive1 reveal">
       <img src="./assets/immersive1.webp" alt="">
       <div class="descricaoImmersive1">
         <h1>Plano Immersion</h1>
         <h2 class="h2">03 aulas de 01h por semana</h2>
         <h2>(12 horas em aulas por mês).</h2>
-        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20immersive">AULAS INDIVIDUAIS</a>
-        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20immersive">AULAS EM DUPLA</a>
+        <a class="planButton" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20immersive">Vision Solo | Individuais</a>
+        <a href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20do%20plano%20immersive">Vision Sync | Duplas</a>
       </div>
     </div>
   </section>
@@ -226,13 +204,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <section class="textoHighlight">
-    <div class="roxoTexto">
+    <div class="roxoTexto reveal">
       <h2><span>Você aprende no seu ritmo</span> e é guiado, particularmente, com clareza e <span>foco no que é importante para os seus objetivos pessoais.</span></h2>
     </div>
     <a class="botaoVisionary" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%2C%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es!">Fale com o nosso time</a>
   </section>
   <section class="depoimentos">
-    <h1>Faça parte da nossa community de <span class="italico">visionaries:</span></h1>
+    <h1 class="reveal">Faça parte da nossa community de <span class="italico">visionaries:</span></h1>
     <div class="slider-container">
       <div class="cards" id="slider-track">
         <img src="./assets/depoimento1.webp" alt="">
@@ -259,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <div class="form">
-    <h1>Are you <span class="ready">ready?</span></h1>
+    <h1 class="reveal">Are you <span class="ready">ready?</span></h1>
     <form action="" id="form-contato">
       <label for="name">Seu nome:</label>
       <input type="text" id="name" name="name" required>
@@ -298,10 +276,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul class="NavFooter">
         <li class="tituloNav">Navegação</li>
         <a href="./cultura.html">
-          <li class="topic">Cultura</li>
+          <li class="topic">Nossa Cultura</li>
         </a>
         <a href="./planos.html">
-          <li class="topic">Nossos planos</li>
+          <li class="topic">Programas de Aulas</li>
         </a>
         <a href="./contato.html">
           <li class="topic">Contato</li>

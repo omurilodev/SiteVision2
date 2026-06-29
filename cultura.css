@@ -126,6 +126,11 @@ ul li{
 
 header{
   background-color: #421F38;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
 }
 
 nav{
@@ -134,7 +139,13 @@ nav{
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 18px 10px;
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-top: 96px;
+  }
 }
 
 nav img{
@@ -148,6 +159,16 @@ nav img{
   font-family: 'Inter';
   gap: 20px;
   color: white;
+}
+
+.navegacao > a,
+.navegacao > .dropdown > a {
+  transition: color 0.25s ease;
+}
+
+.navegacao > a:hover,
+.navegacao > .dropdown > a:hover {
+  color: #957755;
 }
 
 /* DROPDOWN GALERIA */
@@ -167,10 +188,9 @@ nav img{
   display: none;
   position: absolute;
   background-color: #421F38; /* Fundo roxo/vinho do header */
-  min-width: 180px;
+  min-width: 280px;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
   z-index: 1001;
-  border: 1px solid #957755; /* Detalhe dourado */
   border-radius: 8px;
   top: 100%;
   left: 50%;
@@ -219,6 +239,38 @@ nav img{
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+/* =========================================
+ * ANIMAÇÕES DE ENTRADA (FADE-IN SUTIL AO ROLAR)
+ * ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.visao.reveal, .amor.reveal { transition-delay: 0s; }
+.honra.reveal, .excelencia.reveal { transition-delay: 0.1s; }
+.frente.reveal, .mais.reveal { transition-delay: 0.2s; }
+.verdade.reveal, .guardioes.reveal { transition-delay: 0.3s; }
+
+.passos-container .passo-item:nth-child(1) { transition-delay: 0s; }
+.passos-container .passo-item:nth-child(2) { transition-delay: 0.1s; }
+.passos-container .passo-item:nth-child(3) { transition-delay: 0.2s; }
+.passos-container .passo-item:nth-child(4) { transition-delay: 0.3s; }
+
 /* Responsividade Dropdown */
 @media (max-width: 768px) {
   .dropdown {
@@ -238,6 +290,7 @@ nav img{
     padding-left: 15px;
     transform: none;
     margin-top: 0;
+    min-width: auto;
   }
   
   .dropdown-content::before {
@@ -686,6 +739,17 @@ nav img{
     margin-top: 60px;
     margin-left: 600px;
     border-radius: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.botaoVisionary:hover {
+  transform: translateY(-3px);
+  box-shadow: -1px 18px 18px 9px rgba(0, 0, 0, 0.2);
+  background-color: #16314a;
+}
+
+.botaoVisionary:active {
+  transform: translateY(-1px);
 }
 
 
@@ -789,6 +853,17 @@ input{
   z-index: 1000;
   position: relative;
   margin-bottom: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+#enviar:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#enviar:active {
+  transform: translateY(0);
 
 }
 

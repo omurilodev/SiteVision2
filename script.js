@@ -43,6 +43,26 @@ if (track) {
     track.style.transform = `translateX(${currentPos}px)`;
   });
 
+  track.addEventListener('touchstart', (e) => {
+    isDraggingTrack = true;
+    startXTrack = e.touches[0].pageX - currentPos;
+  });
+
+  window.addEventListener('touchend', () => {
+    isDraggingTrack = false;
+    if(track) track.style.cursor = 'grab';
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDraggingTrack || !track) return;
+    const x = e.touches[0].pageX;
+    currentPos = x - startXTrack;
+    const halfWidth = track.scrollWidth / 2;
+    if (currentPos > 0) currentPos -= halfWidth;
+    else if (Math.abs(currentPos) >= halfWidth) currentPos += halfWidth;
+    track.style.transform = `translateX(${currentPos}px)`;
+  });
+
   animate();
 }
 
@@ -147,7 +167,7 @@ formulario.addEventListener('submit', async (e) => {
   const dados = Object.fromEntries(formData);
 
   // URL do Webhook do n8n (Lembre-se de mudar para a URL de Produção depois)
-  const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision';
+  const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/contato-vision';
 
   try {
     const response = await fetch(WEBHOOK_URL, {
@@ -208,3 +228,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500); // Este valor de 500ms deve bater com o tempo do CSS do vídeo
   });
 });
+
+/** =========================================
+ * ANIMAÇÕES DE ENTRADA (FADE-IN SUTIL AO ROLAR)
+ * ========================================= */
+const revealEls = document.querySelectorAll('.reveal');
+
+if (revealEls.length) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+}

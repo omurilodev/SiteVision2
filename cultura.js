@@ -34,7 +34,7 @@ formulario.addEventListener('submit', async (e) => {
   const dados = Object.fromEntries(formData);
 
   // URL do Webhook do n8n (Lembre-se de mudar para a URL de Produção depois)
-  const WEBHOOK_URL = 'https://hook.neowchat.com.br/webhook/contato-vision';
+  const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/contato-vision';
 
   try {
     const response = await fetch(WEBHOOK_URL, {
@@ -165,5 +165,22 @@ fetch(urlBehold)
     document.getElementById('insta-feed').innerHTML = '<p>Siga-nos no Instagram para acompanhar as novidades!</p>';
   });
 
+/** =========================================
+ * ANIMAÇÕES DE ENTRADA (FADE-IN SUTIL AO ROLAR)
+ * ========================================= */
+const revealEls = document.querySelectorAll('.reveal');
+
+if (revealEls.length) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+}
 
 
