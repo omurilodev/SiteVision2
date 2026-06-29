@@ -49,7 +49,7 @@ if (formulario) {
     const formData = new FormData(formulario);
     const dados = Object.fromEntries(formData);
 
-    const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/contato-vision';
+    const WEBHOOK_URL = 'https://gustavomilli.app.n8n.cloud/webhook/contato-vision-turma';
 
     try {
       const response = await fetch(WEBHOOK_URL, {
