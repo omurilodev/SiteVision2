@@ -1,0 +1,659 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #E1DAD2;
+  background-image: url(./assets/fundoFormulario.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================
+ * DECORAÇÃO DE FUNDO
+ * ========================================= */
+.aguiaFundo {
+  position: fixed;
+  top: 30px;
+  left: -120px;
+  width: 260px;
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* =========================================
+ * PALCO / CARD DO FORMULÁRIO
+ * ========================================= */
+.palco {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.formCard {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  height: min(640px, 80vh);
+  background-color: #421F38;
+  background-image: radial-gradient(circle at top right, #4d2542 0%, #371a30 70%);
+  border-radius: 28px;
+  box-shadow: 0 25px 70px rgba(33, 14, 28, 0.35);
+  padding: 48px 56px 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* =========================================
+ * BARRA DE PROGRESSO
+ * ========================================= */
+.progressoContainer {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 36px;
+}
+
+.progressoBarra {
+  height: 100%;
+  width: 12.5%;
+  background-color: #957755;
+  transition: width 0.4s ease;
+}
+
+#form-turma-slides {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.slideConteudo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: slideEntrada 0.45s ease forwards;
+}
+
+@keyframes slideEntrada {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideIcone {
+  position: absolute;
+  width: auto;
+  max-width: none;
+  opacity: 0.16;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* As imagens têm bastante "respiro" transparente ao redor do desenho;
+   altura > 100% + translate compensam essa margem para o desenho em si
+   (não a caixa invisível da imagem) preencher o card de ponta a ponta. */
+
+/* 1ª imagem (check): esquerda, ponta encostando, altura total do card */
+.slideIcone--check {
+  left: 0;
+  top: 0;
+  height: 160%;
+  transform: translate(-23%, -10%);
+}
+
+/* 2ª imagem (estrela): direita, altura total, centralizada no eixo Y */
+.slideIcone--estrela {
+  right: 0;
+  top: 50%;
+  height: 165%;
+  transform: translate(30%, -50%);
+}
+
+/* 3ª imagem (castelo): esquerda, ponta encostando, altura total do card */
+.slideIcone--castelo {
+  left: 0;
+  top: 0;
+  height: 185%;
+  transform: translate(-36%, -26%);
+}
+
+.slideContador {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #957755;
+  margin-bottom: 14px;
+}
+
+.slidePergunta {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #F5EFE8;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+
+.slidePergunta .destaque {
+  font-style: italic;
+  color: #957755;
+}
+
+.slide input,
+.slide textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  padding: 12px 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  color: #ffffff;
+  border-radius: 0;
+  transition: border-color 0.25s ease;
+}
+
+.slide textarea {
+  resize: none;
+  height: 50px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.slide input::placeholder,
+.slide textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.slide input:-webkit-autofill,
+.slide input:-webkit-autofill:hover,
+.slide input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1000px #3c1d34 inset;
+  box-shadow: 0 0 0 1000px #3c1d34 inset;
+  caret-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.slide input:focus,
+.slide textarea:focus {
+  outline: none;
+  border-bottom-color: #957755;
+}
+
+/* =========================================
+ * SELECT CUSTOMIZADO
+ * ========================================= */
+.campoSelect {
+  position: relative;
+}
+
+.selectTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 12px 4px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.selectTrigger:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.selectTrigger::after {
+  content: '';
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-right: 2px solid #957755;
+  border-bottom: 2px solid #957755;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease, margin-top 0.25s ease;
+}
+
+.selectTrigger.is-open::after {
+  margin-top: 4px;
+  transform: rotate(-135deg);
+}
+
+.selectTrigger:focus-visible,
+.selectTrigger.is-open {
+  outline: none;
+  border-bottom-color: #957755;
+}
+
+.selectValorTexto {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.campoSelect.tem-valor .selectValorTexto {
+  color: #ffffff;
+}
+
+.selectOpcoes {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  position: fixed;
+  background-color: #2f1729;
+  border: 1px solid rgba(149, 119, 85, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  max-height: 230px;
+  overflow-y: auto;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.selectOpcoes.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.selectOpcoes li {
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #F5EFE8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.selectOpcoes li:hover,
+.selectOpcoes li.is-active {
+  background-color: #957755;
+  color: #ffffff;
+}
+
+.selectOpcoes li.is-selected {
+  color: #957755;
+  font-weight: 600;
+}
+
+.selectOpcoes li.is-selected:hover,
+.selectOpcoes li.is-selected.is-active {
+  color: #ffffff;
+}
+
+.slide.is-invalid .selectTrigger {
+  border-bottom-color: #ff9b9b;
+}
+
+/* =========================================
+ * DDI (CÓDIGO DO PAÍS) DO TELEFONE
+ * ========================================= */
+.campoTelefone {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.campoTelefone input {
+  flex: 1;
+  min-width: 0;
+}
+
+.campoSelect--ddi {
+  flex-shrink: 0;
+  order: -1;
+}
+
+.ddiTrigger {
+  width: auto;
+  min-width: 92px;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ddiTrigger .selectValorTexto {
+  flex: none;
+}
+
+.ddiCodigo {
+  float: right;
+  margin-left: 10px;
+  color: rgba(245, 239, 232, 0.6);
+}
+
+.bandeira {
+  width: 22px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin-right: 8px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.ddiTrigger .bandeira {
+  margin-right: 0;
+}
+
+.slideErro {
+  display: none;
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #ff9b9b;
+  font-family: 'Inter', sans-serif;
+}
+
+.slide.is-invalid .slideErro {
+  display: block;
+}
+
+.slide.is-invalid input,
+.slide.is-invalid textarea {
+  border-bottom-color: #ff9b9b;
+}
+
+/* =========================================
+ * SLIDE FINAL
+ * ========================================= */
+.slide.is-active.slideFinal {
+  display: flex;
+  flex-direction: column;
+}
+
+.slideFinal {
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: slideEntrada 0.45s ease forwards;
+}
+
+.checkFinal {
+  width: 70px;
+  margin-bottom: 18px;
+}
+
+.slideFinal h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #F5EFE8;
+  margin: 0 0 12px;
+}
+
+.slideFinal .ready {
+  font-style: italic;
+  font-weight: 600;
+  color: #957755;
+}
+
+.slideFinal p {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  color: rgba(245, 239, 232, 0.85);
+  max-width: 440px;
+  margin: 0 0 28px;
+}
+
+.botaoWhats {
+  background-color: #957755;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.botaoWhats:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+/* =========================================
+ * NAVEGAÇÃO DOS SLIDES
+ * ========================================= */
+.slideNav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.botaoNav {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  padding: 0 28px;
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botaoVoltar {
+  background: transparent;
+  color: #F5EFE8;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  visibility: hidden;
+}
+
+.botaoVoltar.is-visible {
+  visibility: visible;
+}
+
+.botaoAvancar,
+#btn-enviar {
+  background-color: #957755;
+  color: #ffffff;
+}
+
+#btn-enviar {
+  display: none;
+}
+
+.botaoNav:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.botaoNav:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* =========================================
+ * LOGO DENTRO DO CARD
+ * ========================================= */
+.logoCardLink {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.logoCard {
+  width: 190px;
+  display: block;
+}
+
+/* =========================================
+ * TOAST DE ERRO
+ * ========================================= */
+#toast-erro {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #5a2a4a;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #ff9b9b;
+  transform: translateX(150%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999;
+  font-family: inherit;
+}
+
+#toast-erro.toast-show {
+  transform: translateX(0);
+}
+
+.toast-text h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toast-text p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+#fechar-toast-erro {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#fechar-toast-erro:hover {
+  opacity: 1;
+}
+
+/* =========================================
+ * RESPONSIVO
+ * ========================================= */
+@media (max-width: 768px) {
+  .aguiaFundo {
+    display: none;
+  }
+
+  .palco {
+    padding: 24px 16px;
+  }
+
+  .formCard {
+    height: min(640px, 88vh);
+    padding: 32px 24px 24px;
+    border-radius: 20px;
+  }
+
+  .logoCard {
+    width: 130px;
+  }
+
+  .logoCardLink {
+    margin-top: 18px;
+  }
+
+  .slideIcone {
+    opacity: 0.13;
+  }
+
+  .slidePergunta {
+    font-size: 28px;
+  }
+
+  .slide input,
+  .slide textarea,
+  .selectTrigger {
+    font-size: 18px;
+  }
+
+  .selectOpcoes li {
+    font-size: 15px;
+  }
+
+  .slideNav {
+    justify-content: space-between;
+  }
+
+  .botaoNav {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  #toast-erro {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    transform: translateY(150%);
+  }
+
+  #toast-erro.toast-show {
+    transform: translateY(0);
+  }
+}

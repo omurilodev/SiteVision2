@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./formulario-turma-slides.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+  <title>Vision | Executive — Inscrição</title>
+</head>
+
+<body>
+  <img src="./assets/aguiaVision.webp" alt="" class="aguiaFundo" aria-hidden="true">
+
+  <main class="palco">
+    <div class="formCard">
+      <div class="progressoContainer">
+        <div class="progressoBarra" id="progresso-barra"></div>
+      </div>
+
+      <form id="form-turma-slides" novalidate>
+
+      <section class="slide is-active" data-slide="1">
+        <img src="./assets/7.png" alt="" class="slideIcone slideIcone--check" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">01 / 08</span>
+          <label for="name" class="slidePergunta">Qual é o seu <span class="destaque">nome</span>?</label>
+          <input type="text" id="name" name="name" placeholder="Digite seu nome" autocomplete="name" required>
+          <p class="slideErro">Preencha o seu nome para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="2">
+        <img src="./assets/6.png" alt="" class="slideIcone slideIcone--estrela" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">02 / 08</span>
+          <label for="idade" class="slidePergunta">Qual é a sua <span class="destaque">idade</span>?</label>
+          <input type="text" id="idade" name="idade" placeholder="Digite sua idade" inputmode="numeric" pattern="[0-9]*" maxlength="3" required>
+          <p class="slideErro">Preencha sua idade para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="3">
+        <img src="./assets/5.png" alt="" class="slideIcone slideIcone--castelo" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">03 / 08</span>
+          <label for="WhatsApp" class="slidePergunta">Qual é o número do seu <span class="destaque">WhatsApp</span>?</label>
+          <div class="campoTelefone">
+            <input type="tel" id="WhatsApp" name="WhatsApp" placeholder="(11) 91234-5678" autocomplete="tel" inputmode="numeric" maxlength="16" required>
+            <div class="campoSelect campoSelect--ddi tem-valor">
+              <button type="button" class="selectTrigger ddiTrigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Código do país">
+                <img src="https://flagcdn.com/24x18/br.png" alt="" class="bandeira">
+                <span class="selectValorTexto">+55</span>
+              </button>
+              <ul class="selectOpcoes ddiOpcoes" role="listbox">
+                <li role="option" data-value="55" data-iso="br" class="is-selected"><img src="https://flagcdn.com/24x18/br.png" alt="" class="bandeira">Brasil <span class="ddiCodigo">+55</span></li>
+                <li role="option" data-value="351" data-iso="pt"><img src="https://flagcdn.com/24x18/pt.png" alt="" class="bandeira">Portugal <span class="ddiCodigo">+351</span></li>
+                <li role="option" data-value="1" data-iso="us"><img src="https://flagcdn.com/24x18/us.png" alt="" class="bandeira">Estados Unidos <span class="ddiCodigo">+1</span></li>
+                <li role="option" data-value="54" data-iso="ar"><img src="https://flagcdn.com/24x18/ar.png" alt="" class="bandeira">Argentina <span class="ddiCodigo">+54</span></li>
+                <li role="option" data-value="56" data-iso="cl"><img src="https://flagcdn.com/24x18/cl.png" alt="" class="bandeira">Chile <span class="ddiCodigo">+56</span></li>
+                <li role="option" data-value="57" data-iso="co"><img src="https://flagcdn.com/24x18/co.png" alt="" class="bandeira">Colômbia <span class="ddiCodigo">+57</span></li>
+                <li role="option" data-value="52" data-iso="mx"><img src="https://flagcdn.com/24x18/mx.png" alt="" class="bandeira">México <span class="ddiCodigo">+52</span></li>
+                <li role="option" data-value="595" data-iso="py"><img src="https://flagcdn.com/24x18/py.png" alt="" class="bandeira">Paraguai <span class="ddiCodigo">+595</span></li>
+                <li role="option" data-value="598" data-iso="uy"><img src="https://flagcdn.com/24x18/uy.png" alt="" class="bandeira">Uruguai <span class="ddiCodigo">+598</span></li>
+                <li role="option" data-value="34" data-iso="es"><img src="https://flagcdn.com/24x18/es.png" alt="" class="bandeira">Espanha <span class="ddiCodigo">+34</span></li>
+                <li role="option" data-value="44" data-iso="gb"><img src="https://flagcdn.com/24x18/gb.png" alt="" class="bandeira">Reino Unido <span class="ddiCodigo">+44</span></li>
+                <li role="option" data-value="33" data-iso="fr"><img src="https://flagcdn.com/24x18/fr.png" alt="" class="bandeira">França <span class="ddiCodigo">+33</span></li>
+                <li role="option" data-value="49" data-iso="de"><img src="https://flagcdn.com/24x18/de.png" alt="" class="bandeira">Alemanha <span class="ddiCodigo">+49</span></li>
+                <li role="option" data-value="1" data-iso="ca"><img src="https://flagcdn.com/24x18/ca.png" alt="" class="bandeira">Canadá <span class="ddiCodigo">+1</span></li>
+                <li role="option" data-value="244" data-iso="ao"><img src="https://flagcdn.com/24x18/ao.png" alt="" class="bandeira">Angola <span class="ddiCodigo">+244</span></li>
+              </ul>
+              <input type="hidden" name="ddi" id="ddi" value="55">
+            </div>
+          </div>
+          <p class="slideErro">Preencha seu WhatsApp para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="4">
+        <img src="./assets/7.png" alt="" class="slideIcone slideIcone--check" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">04 / 08</span>
+          <label for="objetivo" class="slidePergunta">Qual <span class="destaque">objetivo</span> você quer alcançar com o <span class="destaque">inglês</span>?</label>
+          <textarea id="objetivo" name="objetivo" placeholder="Conte pra gente o seu objetivo" required></textarea>
+          <p class="slideErro">Conte seu objetivo para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="5">
+        <img src="./assets/6.png" alt="" class="slideIcone slideIcone--estrela" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">05 / 08</span>
+          <label class="slidePergunta" id="label-conheceu">Como você nos <span class="destaque">conheceu</span>?</label>
+          <div class="campoSelect">
+            <button type="button" class="selectTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="label-conheceu">
+              <span class="selectValorTexto">Selecione uma opção</span>
+            </button>
+            <ul class="selectOpcoes" role="listbox">
+              <li role="option" data-value="visionary">Indicação de um Visionary</li>
+              <li role="option" data-value="influencer">Indicação de um Influencer</li>
+              <li role="option" data-value="partners">Através de um dos Partners</li>
+              <li role="option" data-value="time">Através de alguém do nosso time</li>
+              <li role="option" data-value="instagram">Nos encontrou no Instagram</li>
+              <li role="option" data-value="google">Nos encontrou no Google</li>
+              <li role="option" data-value="outro">Outro</li>
+            </ul>
+            <input type="hidden" name="conheceu" id="conheceu">
+          </div>
+          <p class="slideErro">Selecione uma opção para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="6">
+        <img src="./assets/5.png" alt="" class="slideIcone slideIcone--castelo" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">06 / 08</span>
+          <label class="slidePergunta" id="label-motivo">Por que você quer aprender <span class="destaque">inglês</span>?</label>
+          <div class="campoSelect">
+            <button type="button" class="selectTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="label-motivo">
+              <span class="selectValorTexto">Selecione uma opção</span>
+            </button>
+            <ul class="selectOpcoes" role="listbox">
+              <li role="option" data-value="profissionais">Motivos profissionais</li>
+              <li role="option" data-value="estudar-fora">Quero estudar fora</li>
+              <li role="option" data-value="viajar-fora">Quero viajar para fora</li>
+              <li role="option" data-value="outros">Outros</li>
+            </ul>
+            <input type="hidden" name="motivo" id="motivo">
+          </div>
+          <p class="slideErro">Selecione uma opção para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="7">
+        <img src="./assets/7.png" alt="" class="slideIcone slideIcone--check" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">07 / 08</span>
+          <label class="slidePergunta" id="label-escolaridade">Qual é a sua <span class="destaque">escolaridade</span>?</label>
+          <div class="campoSelect">
+            <button type="button" class="selectTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="label-escolaridade">
+              <span class="selectValorTexto">Selecione uma opção</span>
+            </button>
+            <ul class="selectOpcoes" role="listbox">
+              <li role="option" data-value="ensino-medio-cursando">Cursando Ensino Médio</li>
+              <li role="option" data-value="ensino-medio-completo">Ensino Médio completo</li>
+              <li role="option" data-value="graduacao-cursando">Cursando Graduação</li>
+              <li role="option" data-value="graduacao-completa">Graduação Completa</li>
+              <li role="option" data-value="pos-mba">Cursando Pós, MBA, etc.</li>
+            </ul>
+            <input type="hidden" name="escolaridade" id="escolaridade">
+          </div>
+          <p class="slideErro">Selecione uma opção para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="8">
+        <img src="./assets/6.png" alt="" class="slideIcone slideIcone--estrela" aria-hidden="true">
+        <div class="slideConteudo">
+          <span class="slideContador">08 / 08</span>
+          <label class="slidePergunta" id="label-cargo">Qual é o seu cargo <span class="destaque">profissional</span>?</label>
+          <div class="campoSelect">
+            <button type="button" class="selectTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="label-cargo">
+              <span class="selectValorTexto">Selecione uma opção</span>
+            </button>
+            <ul class="selectOpcoes" role="listbox">
+              <li role="option" data-value="procurando-emprego">Procurando emprego</li>
+              <li role="option" data-value="estagiario">Estagiário</li>
+              <li role="option" data-value="assistente">Assistente</li>
+              <li role="option" data-value="analista">Analista</li>
+              <li role="option" data-value="lideranca">Cargo de liderança</li>
+              <li role="option" data-value="outros">Outros</li>
+            </ul>
+            <input type="hidden" name="cargo" id="cargo">
+          </div>
+          <p class="slideErro">Selecione uma opção para continuar.</p>
+        </div>
+      </section>
+
+      <section class="slide slideFinal" data-slide="final">
+        <img src="./assets/check.webp" alt="" class="checkFinal">
+        <h2>Tudo certo!</h2>
+        <p>Recebemos suas respostas e, em breve, o nosso time comercial vai entrar em contato com você.</p>
+        <a class="botaoWhats" href="https://wa.me/5511949225614?text=Ol%C3%A1!%20%F0%9F%A6%85%20vim%20pelo%20site%2C%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es!" target="_blank">Falar agora no WhatsApp</a>
+      </section>
+
+      <nav class="slideNav">
+        <button type="button" id="btn-voltar" class="botaoNav botaoVoltar">Voltar</button>
+        <button type="button" id="btn-avancar" class="botaoNav botaoAvancar">Próxima</button>
+        <button type="submit" id="btn-enviar" class="botaoNav botaoAvancar">ENVIAR</button>
+      </nav>
+      </form>
+
+      <a href="./LandingPageTurma.html" class="logoCardLink">
+        <img src="./assets/logoNav.webp" alt="Vision Institute" class="logoCard">
+      </a>
+    </div>
+  </main>
+
+  <div id="toast-erro" class="toast-hidden">
+    <div class="toast-content">
+      <div class="toast-text">
+        <h4>Ops!</h4>
+        <p id="toast-erro-texto">Houve um erro ao enviar. Tente novamente.</p>
+      </div>
+    </div>
+    <button id="fechar-toast-erro">&times;</button>
+  </div>
+
+  <script src="./formulario-turma-slides.js"></script>
+</body>
+
+</html>
