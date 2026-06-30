@@ -446,6 +446,7 @@ body {
   color: rgba(245, 239, 232, 0.85);
   max-width: 440px;
   margin: 0 0 28px;
+  text-wrap: balance;
 }
 
 .botaoWhats {
